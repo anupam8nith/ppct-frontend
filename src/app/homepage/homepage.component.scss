@@ -1,0 +1,58 @@
+.homepage {
+    .hero-section {
+        background: linear-gradient(to right, #ADD8E6, #FFFFFF);
+        text-align: center;
+        padding: 50px 0;
+
+        h1 {
+            color: #ADD8E6;
+        }
+
+        button {
+            margin: 10px;
+        }
+    }
+
+    .features {
+        .row {
+            h3 {
+                color: #333;
+            }
+
+            p {
+                color: #666;
+            }
+        }
+    }
+
+    #carouselExample {
+        max-width: 900px;
+        max-height: 400px;
+        margin: 0 auto; /* Center the carousel */
+    }
+
+    .carousel-inner {
+        max-height: 400px;
+    }
+
+    .carousel-image {
+        height: 400px;
+        object-fit: cover; /* Ensures the image scales properly without distortion */
+    }
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+
+        .navbar-logo {
+            height: 50px; /* Adjusted height for scaling */
+            width: auto; /* Maintains aspect ratio */
+            margin-right: 10px; /* Spacing between logo and brand name */
+            object-fit: contain; /* Ensures logo fits neatly without distortion */
+        }
+    }
+
+    .navbar {
+        padding: 10px 20px; /* Standard padding for the navbar */
+    }
+}
