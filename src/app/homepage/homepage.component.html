@@ -1,98 +1,203 @@
+<!-- src/app/app.component.html -->
 <div class="homepage">
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <!-- Logo and Brand Name -->
-            <a class="navbar-brand d-flex align-items-center" href="/home">
-                <img src="assets/logo.png" alt="PPCT Logo" class="navbar-logo me-2">
-                PPCT
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#cti-certified">CTI Certified</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#installations">Prestigious Installations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#datasheets">Technical Data Sheets</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    
+  <!-- Header / Navbar -->
+  <app-header></app-header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <h1>Welcome to Your Company</h1>
-        <p>Providing top-notch solutions and services for all your needs.</p>
-        <button class="btn btn-primary">Inquiry</button>
-        <button class="btn btn-secondary">Want us to contact you?</button>
-    </section>
-
-    <!-- Carousel Section -->
-    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-        <!-- Indicators -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="4" aria-label="Slide 5"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="5" aria-label="Slide 6"></button>
-        </div>
-    
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="assets/slide0.jpg" class="d-block w-100 carousel-image" alt="Slide 0">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/slide1.jpg" class="d-block w-100 carousel-image" alt="Slide 1">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/slide2.jpg" class="d-block w-100 carousel-image" alt="Slide 2">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/slide3.jpg" class="d-block w-100 carousel-image" alt="Slide 3">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/slide4.jpg" class="d-block w-100 carousel-image" alt="Slide 4">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/slide5.jpg" class="d-block w-100 carousel-image" alt="Slide 5">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+  <!-- Carousel Section -->
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button
+        *ngFor="let slide of carouselSlides; let i = index"
+        type="button"
+        [attr.data-bs-target]="'#carouselExample'"
+        [attr.data-bs-slide-to]="i"
+        [class.active]="i === 0"
+        [attr.aria-label]="'Slide ' + (i + 1)"
+      ></button>
     </div>
-    
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container py-5">
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <h3>Feature 1</h3>
-                    <p>Highlight your key feature here.</p>
-                </div>
-                <div class="col-md-4">
-                    <h3>Feature 2</h3>
-                    <p>Highlight your key feature here.</p>
-                </div>
-                <div class="col-md-4">
-                    <h3>Feature 3</h3>
-                    <p>Highlight your key feature here.</p>
-                </div>
-            </div>
+    <!-- app.component.html -->
+    <div class="carousel-inner" style="height: 450px">
+      <div
+        *ngFor="let slide of carouselSlides; let i = index"
+        class="carousel-item"
+        [class.active]="i === 0"
+      >
+        <img
+          [src]="slide.imageUrl"
+          class="d-block w-100"
+          alt="Slide {{ i + 1 }}"
+          style="object-fit: cover; height: 100%"
+        />
+        <!-- Centered overlay text -->
+        <div class="carousel-caption d-none d-md-block">
+          <h3>{{ slide.title }}</h3>
+          <p>{{ slide.description }}</p>
         </div>
-    </section>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Products Section -->
+  <section
+    id="products"
+    class="products-section py-5"
+    style="background-color: #fff"
+  >
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Our Products</h2>
+        <a href="#" class="text-decoration-none">
+          View All <span class="ms-1">&#8594;</span>
+        </a>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4" *ngFor="let product of products">
+          <div class="card border-0" style="background-color: #e1f5fe">
+            <img
+              [src]="product.imageUrl"
+              class="card-img-top"
+              alt="{{ product.title }}"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <p class="card-text">{{ product.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="contact-section d-flex align-items-center justify-content-center"
+    style="
+      height: 70vh;
+      background: url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1920');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    "
+  >
+    <div class="overlay"></div>
+    <div
+      class="container text-white text-center"
+      style="position: relative; z-index: 2"
+    >
+      <h2 class="mb-1">Not Sure What You Need?</h2>
+      <p class="mb-4">Let our experts help you to find the best solution!</p>
+
+      <!-- Contact Form (inline fields) -->
+      <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
+        <div class="row g-3 justify-content-center">
+          <!-- Name -->
+          <div class="col-md-3">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Enter Name"
+              ngModel
+              required
+            />
+          </div>
+
+          <!-- Contact Number -->
+          <div class="col-md-3">
+            <label for="phone" class="form-label">Contact Number</label>
+            <div class="input-group">
+              <span class="input-group-text">+91</span>
+              <input
+                type="text"
+                class="form-control"
+                id="phone"
+                name="phone"
+                placeholder="Enter Number"
+                ngModel
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Email ID -->
+          <div class="col-md-3">
+            <label for="email" class="form-label">Email ID</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Enter Email ID"
+              ngModel
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Submit Button Row -->
+        <div class="row mt-5">
+          <div class="col d-flex justify-content-center">
+            <button
+              type="submit"
+              class="btn btn-primary text-white px-4"
+              [disabled]="contactForm.invalid"
+            >
+              Request A Call
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Clients Section -->
+  <section id="clients" class="py-5" style="background-color: #e0f3f9">
+    <div class="container">
+      <h2 class="text-center mb-5">OUR PRECIOUS CLIENTS</h2>
+
+      <!-- Responsive row with auto-wrapping columns. 
+         row-cols-* changes how many columns are displayed at each breakpoint. -->
+      <div
+        class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4 justify-content-center"
+      >
+        <!-- Loop over your clients array -->
+        <div class="col text-center" *ngFor="let client of clients">
+          <img
+            [src]="client.logoUrl"
+            [alt]="client.name + ' logo'"
+            class="img-fluid client-logo"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <!-- Hero / Contact Section -->
+
+  <!-- Footer -->
+  <app-footer></app-footer>
 </div>

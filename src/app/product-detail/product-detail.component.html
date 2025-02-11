@@ -1,0 +1,98 @@
+<app-header></app-header>
+<div class="container py-5" *ngIf="product">
+  <!-- Banner image -->
+  <div class="mb-3">
+    <!-- Example using a simple Unicode arrow. 
+         If you have a preferred icon library (FontAwesome, Bootstrap Icons), replace it accordingly. -->
+    <a routerLink="/products" class="text-decoration-none">
+      &larr; Back to Products
+    </a>
+  </div>
+
+  <!-- Banner image at top -->
+  <div class="mb-4">
+    <img
+      [src]="product.bannerImage"
+      class="img-fluid w-100 rounded"
+      [alt]="product.name"
+      style="max-height: 400px; object-fit: cover"
+    />
+  </div>
+
+  <!-- Product name & description -->
+  <h2 class="mb-3">{{ product.name }}</h2>
+  <p>{{ product.description }}</p>
+
+  <div class="row my-4 align-items-center">
+    <!-- Applications Column -->
+    <div class="col-md-4">
+      <h5>Applications</h5>
+      <ul>
+        <li *ngFor="let app of product.applications">{{ app }}</li>
+      </ul>
+    </div>
+
+    <!-- Advantages Column -->
+    <div class="col-md-4">
+      <h5>Advantages</h5>
+      <ul>
+        <li *ngFor="let adv of product.advantages">{{ adv }}</li>
+      </ul>
+    </div>
+
+    <!-- Secondary Image Column -->
+    <div class="col-md-4 text-center">
+      <img
+        [src]="product.secondImage"
+        class="img-fluid rounded"
+        [alt]="product.name + ' second image'"
+      />
+    </div>
+  </div>
+
+  <!-- If you'd like to show the 'Working Principle' on each detail page, add it here: -->
+  <div class="working-principle mt-5">
+    <h4>Working Principle of Cooling Towers</h4>
+    <p>
+      Cooling towers use evaporative cooling, where heat is transferred from
+      water to air through evaporation and direct heat exchange. This process
+      cools down the water used in industrial processes or HVAC systems.
+    </p>
+    <!-- You can add the step-by-step details, components, etc. from your text if needed -->
+    <h6>Step-by-Step Working Principle</h6>
+    <ol>
+      <li>
+        <strong>Hot Water Distribution:</strong> Warm water is pumped in...
+      </li>
+      <li>
+        <strong>Air and Water Interaction:</strong> Airflow is introduced...
+      </li>
+      <li>
+        <strong>Heat Transfer Mechanisms:</strong> Evaporative cooling and
+        direct heat exchange.
+      </li>
+      <li>
+        <strong>Cooling of Water:</strong> The water's temperature drops...
+      </li>
+      <li>
+        <strong>Release of Warm, Moist Air:</strong> Heat and moisture exit...
+      </li>
+      <li>
+        <strong>Recirculation:</strong> The cooled water returns to the
+        process...
+      </li>
+    </ol>
+    <p>
+      <strong>Key Components:</strong> Fill Material, Fans, Drift Eliminators,
+      Nozzles, Cooling Basin. The core principle is using the latent heat of
+      vaporization: as water evaporates, it absorbs a large amount of heat from
+      the remaining water, lowering its temperature.
+    </p>
+    <p>
+      <strong>Applications:</strong> Power plants, Chemical plants, HVAC
+      systems, Petroleum refineries, etc.
+    </p>
+  </div>
+</div>
+
+<app-footer></app-footer>

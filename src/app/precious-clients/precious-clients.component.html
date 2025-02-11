@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div class="precious-clients-page mb-3">
+  <!-- Banner -->
+  <div class="banner mb-4">
+    <img
+      [src]="bannerImage"
+      alt="Precious Clients Banner"
+      class="img-fluid w-100"
+      style="object-fit: cover; max-height: 400px"
+    />
+  </div>
+
+  <!-- Intro Text -->
+  <div class="container mb-4">
+    <p class="lead">
+      {{ introText }}
+    </p>
+  </div>
+
+  <!-- Client List Table -->
+  <div class="container">
+    <h2 class="mb-3">Client List</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered align-middle">
+        <thead class="table-light">
+          <tr>
+            <th style="width: 60%">Client Name</th>
+            <th style="width: 40%">Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clients">
+            <td>{{ client.name }}</td>
+            <td>{{ client.location }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="container py-5">
+  <h2 class="mb-4">Our Products</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let product of products">
+      <div class="card h-100">
+        <img
+          [src]="product.bannerImage"
+          class="card-img-top"
+          [alt]="product.name"
+          style="object-fit: cover; height: 200px"
+        />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <!-- Could show a short teaser, if you had one -->
+          <p class="card-text">{{ product.description | slice : 0 : 60 }}...</p>
+          <a
+            [routerLink]="['/products', product.id]"
+            class="btn btn-primary mt-auto"
+          >
+            View Details
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

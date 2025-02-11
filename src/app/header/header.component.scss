@@ -1,0 +1,28 @@
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.navbar-toggler-icon {
+  background-image: none;
+  border: 1px solid #fff;
+  width: 25px;
+  height: 25px;
+  border-radius: 2px;
+  position: relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 2px;
+  background-color: #fff;
+  left: 15%;
+  top: 40%;
+}
+
+.navbar-toggler-icon::after {
+  top: 55%;
+}

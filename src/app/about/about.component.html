@@ -1,0 +1,64 @@
+<app-header></app-header>
+<div class="about-page">
+  <!-- Banner Section -->
+  <div class="banner position-relative">
+    <img
+      [src]="bannerImage"
+      alt="About Us Banner"
+      class="img-fluid w-100 banner-image"
+    />
+    <div class="banner-overlay"></div>
+    <div class="banner-text position-absolute text-white text-center">
+      <h1 class="fw-bold display-6">{{ bannerHeading }}</h1>
+      <p class="lead">{{ bannerSubheading }}</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container py-4">
+    <h2 class="mb-4 about-us-heading text-center">About Us</h2>
+
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col-md-6 mb-4">
+        <div class="content-box p-4 rounded">
+          <p class="fw-bold mb-3 fs-5">P.P. COOLING TOWERS</p>
+          <div *ngFor="let paragraph of introParagraphs">
+            <p class="lh-lg">{{ paragraph }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-md-6">
+        <div class="bg-light p-4 rounded shadow-sm mb-4">
+          <h5 class="mb-3">Core Focus</h5>
+          <ul>
+            <li>Manufacturing Cooling Towers</li>
+            <li>Repair & Maintenance</li>
+            <li>Spare Parts Supply</li>
+            <li>Cost-Effective, Timely Solutions</li>
+          </ul>
+        </div>
+
+        <div class="bg-light p-4 rounded shadow-sm">
+          <h5 class="mb-3">Why Choose Us?</h5>
+          <ul>
+            <li>Professional & Experienced Team</li>
+            <li>Dedicated & Timely Completion of Projects</li>
+            <li>Competitive Costs</li>
+            <li>Customer Satisfaction Driven</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signature Section -->
+    <div class="mt-5 text-center">
+      <p class="mb-1">Yours sincerely,</p>
+      <p class="mb-1">For P.P.COOLING TOWERS</p>
+      <h6 class="fw-bold mb-0">Paritosh Kumar</h6>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

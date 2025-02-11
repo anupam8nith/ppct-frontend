@@ -1,0 +1,51 @@
+.about-page {
+  background-color: #f8f9fa;
+}
+
+.banner {
+  height: 400px;
+  overflow: hidden;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.banner-image {
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+}
+
+.banner-text {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.about-us-heading {
+  font-weight: 700;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.content-box {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+
+.lh-lg {
+  line-height: 1.75;
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
