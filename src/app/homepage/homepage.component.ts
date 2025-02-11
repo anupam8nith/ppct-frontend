@@ -37,8 +37,8 @@ export class HomepageComponent {
       description: 'Engineered for durability and reliability.',
     },
     {
-      imageUrl:
-        'https://images.pexels.com/photos/6313462/pexels-photo-6313462.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      imageUrl: 'assets/carousel/carousel3.jpg',
+        // 'https://images.pexels.com/photos/6313462/pexels-photo-6313462.jpeg?auto=compress&cs=tinysrgb&w=1600',
       title: 'Customized for Your Needs',
       description: 'Tailor-made solutions for diverse industries.',
     },
