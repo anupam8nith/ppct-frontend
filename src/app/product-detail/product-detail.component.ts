@@ -10,6 +10,7 @@ import { HeaderComponent } from '../header/header.component';
   imports: [RouterModule, CommonModule, HeaderComponent, FooterComponent],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
+  standalone:true,
 })
 export class ProductDetailComponent {
   product: Product | undefined;

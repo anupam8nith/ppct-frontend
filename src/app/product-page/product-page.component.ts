@@ -10,6 +10,7 @@ import { FooterComponent } from '../footer/footer.component';
   imports: [CommonModule, RouterModule, HeaderComponent, FooterComponent],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.scss',
+  standalone:true,
 })
 export class ProductPageComponent {
   products: Product[] = [];
