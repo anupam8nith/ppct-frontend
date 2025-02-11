@@ -18,17 +18,19 @@
     </div>
 
     <!-- app.component.html -->
-    <div class="carousel-inner" style="height: 450px">
+    <div class="carousel-inner" >
+      
       <div
         *ngFor="let slide of carouselSlides; let i = index"
-        class="carousel-item"
+        class="carousel-item position-relative"
         [class.active]="i === 0"
       >
+      <div class="banner-overlay"></div>
         <img
           [src]="slide.imageUrl"
           class="d-block w-100"
           alt="Slide {{ i + 1 }}"
-          style="object-fit: cover; height: 100%"
+          style="height:500px; max-width:100%"
         />
         <!-- Centered overlay text -->
         <div class="carousel-caption d-none d-md-block">

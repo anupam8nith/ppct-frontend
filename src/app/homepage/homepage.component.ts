@@ -25,14 +25,14 @@ export class HomepageComponent {
   }
   carouselSlides = [
     {
-      imageUrl:
-        'https://images.pexels.com/photos/6313464/pexels-photo-6313464.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      imageUrl: 'assets/carousel/carousel1.jpg',
+        // 'https://images.pexels.com/photos/6313464/pexels-photo-6313464.jpeg?auto=compress&cs=tinysrgb&w=1600',
       title: 'Efficient Cooling Solutions',
       description: 'Innovative technology for optimal performance.',
     },
     {
-      imageUrl:
-        'https://images.pexels.com/photos/6313463/pexels-photo-6313463.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      imageUrl: 'assets/carousel/carousel2.jpg',
+        // 'https://images.pexels.com/photos/6313463/pexels-photo-6313463.jpeg?auto=compress&cs=tinysrgb&w=1600',
       title: 'Quality You Can Trust',
       description: 'Engineered for durability and reliability.',
     },

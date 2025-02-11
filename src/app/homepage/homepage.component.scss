@@ -6,7 +6,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-img {
+.products-section img {
   height: 200px; /* or any desired fixed height */
   width: 100%; /* ensures the image fills the card width */
   object-fit: cover; /* crops the image to fill the area without distorting it */
@@ -19,6 +19,16 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  // color: #000;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0));
 }
 
 .footer {
