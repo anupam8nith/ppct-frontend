@@ -7,15 +7,16 @@ import { ContactUsService } from '../services/contact.service';
 
 @Component({
   selector: 'app-contact-us',
-  imports: [CommonModule, FormsModule, FooterComponent, HeaderComponent,ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, FooterComponent, HeaderComponent, ReactiveFormsModule],
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.scss',
 })
 export class ContactUsComponent {
-  constructor(private contactusService:ContactUsService,private fb:FormBuilder){
+  constructor(private contactusService: ContactUsService, private fb: FormBuilder) {
     this.initForm();
   }
-  showAlert:boolean=false
+  showAlert: boolean = false
+  showError:boolean=false
   bannerImage =
     'https://images.pexels.com/photos/3184308/pexels-photo-3184308.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop';
 
@@ -29,30 +30,37 @@ export class ContactUsComponent {
   fax = '011-25355687';
   mobile = '9811890055';
   email = 'ppcoolingtowers@gmail.com';
-  contactForm!:FormGroup
-initForm(){
-  this.contactForm=this.fb.group({
-    name:['',Validators.required],
-    email:['',[Validators.required,Validators.email]],
-    phone_number:['',[Validators.required,Validators.pattern(/^[6-9]\d{9}$/)]],
-    message:['',Validators.required]
-  })
-}
+  contactForm!: FormGroup
+  initForm() {
+    this.contactForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone_number: ['', [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]],
+      message: ['', Validators.required]
+    })
+  }
 
   // Example form submission
   onSubmit() {
-    let payload=this.contactForm.value;
-    this.contactusService.sendMail(payload).subscribe(res=>{
+    let payload = this.contactForm.value;
+    this.contactusService.sendMail(payload).subscribe( 
+      next=>{
       this.showAlert = true;
-console.log(this.showAlert);
+      console.log(this.showAlert);
       setTimeout(() => {
         this.showAlert = false;
       }, 5000); // Hide after 5 seconds
 
       // Optionally reset the form
       this.contactForm.reset();
-    })
+    },error=>{
+      this.showError=true;
+      setTimeout(() => {
+        this.showError = false;
+      }, 5000); // Hide after 5 seconds
+    }
+  )
 
-    
+
   }
 }

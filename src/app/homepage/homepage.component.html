@@ -111,7 +111,7 @@
       <p class="mb-4">Let our experts help you to find the best solution!</p>
 
       <!-- Contact Form (inline fields) -->
-      <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
+      <form [formGroup]='contactForm'>
         <div class="row g-3 justify-content-center">
           <!-- Name -->
           <div class="col-md-3">
@@ -120,9 +120,8 @@
               type="text"
               class="form-control"
               id="name"
-              name="name"
               placeholder="Enter Name"
-              ngModel
+             formControlName="name"
               required
             />
           </div>
@@ -136,9 +135,8 @@
                 type="text"
                 class="form-control"
                 id="phone"
-                name="phone"
                 placeholder="Enter Number"
-                ngModel
+                formControlName="phone_number"
                 required
               />
             </div>
@@ -151,9 +149,8 @@
               type="email"
               class="form-control"
               id="email"
-              name="email"
               placeholder="Enter Email ID"
-              ngModel
+              formControlName="email"
               required
             />
           </div>
@@ -166,6 +163,7 @@
               type="submit"
               class="btn btn-primary text-white px-4"
               [disabled]="contactForm.invalid"
+              (click)="onSubmit()"
             >
               Request A Call
             </button>

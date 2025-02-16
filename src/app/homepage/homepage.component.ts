@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { ContactUsService } from '../services/contact.service';
 
 @Component({
   selector: 'app-homepage',
@@ -13,32 +14,64 @@ import { FooterComponent } from '../footer/footer.component';
     RouterModule,
     HeaderComponent,
     FooterComponent,
+    ReactiveFormsModule
   ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
 })
 export class HomepageComponent {
-  onSubmit(formData: any) {
-    // Perform your logic here, e.g., send to an API, log to console, etc.
-    console.log('Form submitted:', formData);
-    alert(`Thank you, ${formData.name}. We'll be in touch!`);
+  contactForm!: FormGroup;
+  showAlert:boolean=false;
+  showError:boolean=false;
+  constructor(private fb: FormBuilder, private contactService: ContactUsService) { 
+    this.initForm()
+  }
+
+  initForm() {
+    this.contactForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone_number: ['', [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]],
+    })
+  }
+  onSubmit() {
+    let payload = this.contactForm.value;
+    this.contactService.sendMail(payload).subscribe( 
+      next=>{
+      this.showAlert = true;
+      console.log(this.showAlert);
+      setTimeout(() => {
+        this.showAlert = false;
+      }, 5000); // Hide after 5 seconds
+
+      // Optionally reset the form
+      this.contactForm.reset();
+    },error=>{
+      this.showError=true;
+      setTimeout(() => {
+        this.showError = false;
+      }, 5000); // Hide after 5 seconds
+    }
+  )
+
+   
   }
   carouselSlides = [
     {
       imageUrl: 'assets/carousel/carousel1.jpg',
-        // 'https://images.pexels.com/photos/6313464/pexels-photo-6313464.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      // 'https://images.pexels.com/photos/6313464/pexels-photo-6313464.jpeg?auto=compress&cs=tinysrgb&w=1600',
       title: 'Efficient Cooling Solutions',
       description: 'Innovative technology for optimal performance.',
     },
     {
       imageUrl: 'assets/carousel/carousel2.jpg',
-        // 'https://images.pexels.com/photos/6313463/pexels-photo-6313463.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      // 'https://images.pexels.com/photos/6313463/pexels-photo-6313463.jpeg?auto=compress&cs=tinysrgb&w=1600',
       title: 'Quality You Can Trust',
       description: 'Engineered for durability and reliability.',
     },
     {
       imageUrl: 'assets/carousel/carousel3.jpg',
-        // 'https://images.pexels.com/photos/6313462/pexels-photo-6313462.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      // 'https://images.pexels.com/photos/6313462/pexels-photo-6313462.jpeg?auto=compress&cs=tinysrgb&w=1600',
       title: 'Customized for Your Needs',
       description: 'Tailor-made solutions for diverse industries.',
     },
