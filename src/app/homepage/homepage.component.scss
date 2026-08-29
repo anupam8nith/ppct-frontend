@@ -1126,16 +1126,19 @@
 .chapter-tab.active .tab-time {
   color: #7fcfe3;
 }
+.explainer-section .wrap {
+  max-width: 1320px;
+}
 .cinema-body {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  min-height: 440px;
+  grid-template-columns: 1.52fr 1fr;
+  min-height: 520px;
 }
 .cinema-visual-frame {
   position: relative;
   overflow: hidden;
   background: #000;
-  min-height: 380px;
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1143,7 +1146,7 @@
 .cinema-video-player {
   width: 100%;
   height: 100%;
-  min-height: 380px;
+  min-height: 500px;
   object-fit: cover;
   display: block;
   background: #000;
@@ -1153,6 +1156,7 @@ iframe.cinema-video-player {
   aspect-ratio: 16 / 9;
   width: 100%;
   height: 100%;
+  min-height: 500px;
   border: 0;
 }
 .cinema-bg-img {
@@ -1432,6 +1436,11 @@ iframe.cinema-video-player {
   .cinema-body {
     grid-template-columns: 1fr;
   }
+  .cinema-visual-frame,
+  .cinema-video-player,
+  iframe.cinema-video-player {
+    min-height: 360px;
+  }
   .chapter-tabs {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1447,6 +1456,11 @@ iframe.cinema-video-player {
 }
 
 @media (max-width: 640px) {
+  .cinema-visual-frame,
+  .cinema-video-player,
+  iframe.cinema-video-player {
+    min-height: 230px;
+  }
   .chapter-tabs {
     grid-template-columns: 1fr;
   }
