@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "ppcoolingtowersforyou"
+  },
+  "targets": {
+    "ppcoolingtowersforyou": {
+      "hosting": {
+        "primary": [
+          "ppcoolingtowersforyou"
+        ],
+        "ppcoolingtowers": [
+          "ppcoolingtowers"
+        ]
+      }
+    }
   }
 }
