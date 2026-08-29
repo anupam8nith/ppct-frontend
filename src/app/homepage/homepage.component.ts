@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -23,9 +23,32 @@ import { clients as allClients } from '../json-data/clients';
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
 })
-export class HomepageComponent {
-  heroImage = 'assets/carousel/carousel1.jpg';
+export class HomepageComponent implements OnInit, OnDestroy {
+  heroImages = [
+    'assets/carousel/carousel1.jpg',
+    'assets/carousel/carousel2.jpg',
+    'assets/carousel/carousel3.jpg'
+  ];
+  currentHeroIndex = 0;
+  heroInterval: any;
+
   aboutImage = 'assets/carousel/carousel2.jpg';
+
+  ngOnInit() {
+    this.startHeroSlider();
+  }
+
+  ngOnDestroy() {
+    if (this.heroInterval) {
+      clearInterval(this.heroInterval);
+    }
+  }
+
+  startHeroSlider() {
+    this.heroInterval = setInterval(() => {
+      this.currentHeroIndex = (this.currentHeroIndex + 1) % this.heroImages.length;
+    }, 5000);
+  }
 
   productCount = products.length;
   featuredProducts = products.slice(0, 6).map((p) => ({

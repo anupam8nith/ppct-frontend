@@ -1,6 +1,11 @@
 <app-header></app-header>
 
-<section class="hero" [style.background-image]="'url(' + heroImage + ')'">
+<section class="hero">
+  <div class="hero-bg" 
+       *ngFor="let img of heroImages; let i = index"
+       [class.active]="i === currentHeroIndex"
+       [style.background-image]="'url(' + img + ')'">
+  </div>
   <div class="wrap">
     <div class="hero-copy">
       <span class="eyebrow">Cooling Tower Manufacturing &amp; Service &middot; Delhi NCR</span>
