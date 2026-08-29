@@ -3,7 +3,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 
-const SITE_NAME = 'P.P. Cooling Towers';
+const SITE_NAME = 'P.P. Cooling Towers®';
 
 /**
  * Walks the activated route tree on every navigation and applies that

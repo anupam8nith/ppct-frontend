@@ -13,7 +13,7 @@ export const routes: Routes = [
     data: {
       title: 'Cooling Tower Manufacturing, Repair & Maintenance',
       description:
-        'P.P. Cooling Towers™ manufactures, repairs and maintains industrial cooling towers of any capacity across India, and supplies genuine spare parts. Trusted by 600+ enterprises like Jindal, LG, Samsung, and Reliance.',
+        'P.P. Cooling Towers® manufactures, repairs and maintains industrial cooling towers of any capacity across India, and supplies genuine spare parts. Trusted by 600+ enterprises like Jindal, LG, Samsung, and Reliance.',
     },
   },
   {
@@ -22,7 +22,7 @@ export const routes: Routes = [
     data: {
       title: 'Products',
       description:
-        'Low-vibration aluminium fan sets, PVC fills, drift eliminators, tie rods and more. Browse our full cooling tower product and OEM spare parts catalog.',
+        'Minimal-vibration aluminium fan sets, PVC fills, drift eliminators, tie rods and more. Browse our full cooling tower product and OEM spare parts catalog.',
     },
   },
   {
@@ -37,7 +37,7 @@ export const routes: Routes = [
     data: {
       title: 'Precious Clients',
       description:
-        'Jindal, LG, Samsung, Reliance, Escorts, Bata, Pepsi, NHPC, and 600+ other businesses across India trust P.P. Cooling Towers™.',
+        'Jindal, LG, Samsung, Reliance, Escorts, Bata, Pepsi, NHPC, and 600+ other businesses across India trust P.P. Cooling Towers®.',
     },
   },
   {
@@ -46,7 +46,7 @@ export const routes: Routes = [
     data: {
       title: 'About Us',
       description:
-        'P.P. Cooling Towers™ manufactures, repairs and maintains cooling towers across India. Cost saving, with excellence.',
+        'P.P. Cooling Towers® manufactures, repairs and maintains cooling towers across India. Cost saving, with excellence.',
     },
   },
   {
@@ -55,7 +55,7 @@ export const routes: Routes = [
     data: {
       title: 'Contact Us',
       description:
-        'Get in touch with P.P. Cooling Towers for a new installation, repair, maintenance or spare parts order.',
+        'Get in touch with P.P. Cooling Towers® for a new installation, repair, maintenance or spare parts order.',
     },
   },
 ];

@@ -13,7 +13,7 @@ export const products = [
       'Chemical & pharmaceutical facilities',
     ],
     advantages: [
-      'Aerodynamic aluminium fan blades for less vibration & zero flutter',
+      'Aerodynamic aluminium fan blades for less/minimal vibration & steady airflow',
       'Lightweight high-strength cast alloy construction',
       'Dynamic balance protects motor bearings & extended drive shafts',
       'Aerodynamically profiled for high CFM and low noise',

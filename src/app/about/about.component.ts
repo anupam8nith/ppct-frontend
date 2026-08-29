@@ -21,7 +21,7 @@ export class AboutComponent {
   productCount = products.length;
 
   introParagraphs = [
-    `We take this opportunity to introduce our company. P.P. Cooling Towers™ has been serving the cooling tower industry, specifically to manufacture, repair and maintain cooling towers of any capacity. Beside these, we also supply genuine OEM spare parts for cooling towers.`,
+    `We take this opportunity to introduce our company. P.P. Cooling Towers® has been serving the cooling tower industry, specifically to manufacture, repair and maintain cooling towers of any capacity. Beside these, we also supply genuine OEM spare parts for cooling towers.`,
     `In a continuous track record of excellence, we have rendered our services to 600+ companies across India—including industrial leaders like Jindal Steel, LG Electronics, Samsung, and Reliance—and we are proud to say that they rely on us year after year.`,
     `We have a team of dynamic, energetic and experienced people. We keep a major thrust on the punctuality of completion of assignments. Cost-wise, we are highly competitive against much older companies, so our governing philosophy is "Cost Saving with Excellence".`,
   ];

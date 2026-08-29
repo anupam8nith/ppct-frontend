@@ -47,8 +47,8 @@ export const galleryItems: GalleryItem[] = [
     categoryLabel: 'Spares & Components',
     image: 'assets/gallery/fan-hub-assembly.jpg',
     specs: 'Dynamic Balanced Cast Alloy / Multi-Blade Hub',
-    description: 'Dynamically balanced cooling tower fan hub engineered to handle immense torque without mechanical vibration.',
-    highlight: 'Vibration-Free'
+    description: 'Dynamically balanced cooling tower fan hub engineered to handle immense torque with minimal/less mechanical vibration.',
+    highlight: 'Minimal Vibration'
   },
   {
     id: 5,

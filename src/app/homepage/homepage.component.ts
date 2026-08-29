@@ -76,7 +76,7 @@ export const EXPLAINER_SCENES: ExplainerScene[] = [
       'Direct from our manufacturing facility: aerodynamic aluminium fan blades engineered for less vibration, 360° self-rotating sprinkler heads, and virgin PVC honeycomb fills.',
     image: 'assets/products/pvc-fills.jpg',
     keyPoints: [
-      'Aerodynamic aluminium fan blades engineered for less vibration & zero flutter',
+      'Aerodynamic aluminium fan blades engineered for minimal/less vibration & steady airflow',
       'Dynamically balanced cast alloy fan hub protecting motor bearings and drive shafts',
       '360° rotary sprinkler head for uniform water dispersion at low pressure',
       'Thermoformed virgin PVC cross-flute fills maximizing air-water contact area',
