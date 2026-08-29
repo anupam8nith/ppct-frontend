@@ -1,0 +1,56 @@
+:host {
+  display: block;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.whatsapp-link,
+.mail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.whatsapp-link {
+  color: #1ea952;
+}
+.mail-link {
+  color: var(--navy-700);
+}
+
+.whatsapp-link:hover,
+.mail-link:hover {
+  text-decoration: underline;
+}
+
+.dark .whatsapp-link {
+  color: #6fe8a4;
+}
+.dark .mail-link {
+  color: var(--sky-400);
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

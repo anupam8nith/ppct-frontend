@@ -1,1 +1,343 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==========================================================================
+   P.P. Cooling Towers, global design system
+   ========================================================================== */
+
+:root {
+  --navy-900: #0f2438;
+  --navy-800: #15304a;
+  --navy-700: #1e4a6e;
+  --navy-600: #2c6690;
+  --sky-500: #5fb8d4;
+  --sky-400: #7fcfe3;
+  --sky-200: #c9eef6;
+  --sky-100: #effafc;
+  --amber: #ee7d1f;
+  --amber-dark: #d2670f;
+  --ink: #16232e;
+  --muted: #5a6b7b;
+  --border: #e3eaf0;
+  --white: #ffffff;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 12px 30px -12px rgba(15, 36, 56, 0.18);
+  --shadow-sm: 0 4px 14px -6px rgba(15, 36, 56, 0.14);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --header-h: 108px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--navy-900);
+  margin: 0;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+ul {
+  margin: 0;
+}
+
+/* Layout helpers -------------------------------------------------------- */
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 56px 0;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sky-500);
+}
+
+.eyebrow.dark {
+  color: var(--amber);
+}
+
+.section-head {
+  max-width: 640px;
+  margin: 0 auto 44px;
+  text-align: center;
+}
+
+.section-head h2 {
+  font-size: clamp(26px, 3.2vw, 36px);
+  margin-top: 10px;
+}
+
+.section-head p {
+  color: var(--muted);
+  font-size: 16px;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+/* Buttons ----------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.15s ease;
+  font-family: var(--font);
+  line-height: 1;
+}
+
+.btn-sm {
+  padding: 10px 18px;
+  font-size: 13.5px;
+}
+
+.btn-amber {
+  background: var(--amber);
+  color: #fff;
+  box-shadow: 0 10px 24px -8px rgba(238, 125, 31, 0.55);
+}
+.btn-amber:hover {
+  background: var(--amber-dark);
+}
+
+.btn-outline {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-navy {
+  background: var(--navy-800);
+  color: #fff;
+}
+.btn-navy:hover {
+  background: var(--navy-900);
+}
+
+.btn-navy-outline {
+  border-color: var(--navy-700);
+  color: var(--navy-800);
+  background: transparent;
+}
+.btn-navy-outline:hover {
+  background: var(--sky-100);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Cards / icon tiles -------------------------------------------------------- */
+
+.icon-tile {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: var(--navy-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sky-400);
+  flex-shrink: 0;
+}
+
+.icon-tile svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Page banner (used by inner pages) --------------------------------------- */
+
+.page-banner {
+  position: relative;
+  color: #fff;
+  padding: 150px 0 64px;
+  background-size: cover;
+  background-position: center;
+}
+
+.page-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(10, 26, 41, 0.92) 20%, rgba(15, 45, 70, 0.62) 100%);
+}
+
+.page-banner .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.page-banner .eyebrow {
+  color: var(--sky-400);
+}
+
+.page-banner h1 {
+  color: #fff;
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 12px 0 10px;
+}
+
+.page-banner p {
+  color: #dce8f0;
+  font-size: 16.5px;
+  max-width: 560px;
+  margin: 0;
+}
+
+.breadcrumb-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: #b9cada;
+  margin-bottom: 4px;
+}
+.breadcrumb-row a {
+  color: #dce8f0;
+  text-decoration: none;
+}
+.breadcrumb-row a:hover {
+  color: var(--sky-400);
+}
+
+/* Forms --------------------------------------------------------------------- */
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--navy-800);
+  display: block;
+  margin-bottom: 6px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  color: var(--ink);
+  font-size: 14.5px;
+  font-family: var(--font);
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--sky-500);
+}
+
+.field .err {
+  font-size: 12px;
+  color: #c0392b;
+  margin-top: 5px;
+}
+
+.field.on-dark label {
+  color: #cfe0ec;
+}
+.field.on-dark input,
+.field.on-dark textarea {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+.field.on-dark input::placeholder,
+.field.on-dark textarea::placeholder {
+  color: #9fb4c4;
+}
+
+.alert {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+.alert-success {
+  background: #e3f6ea;
+  color: #1e7e42;
+  border: 1px solid #b8e6c6;
+}
+.alert-error {
+  background: #fdecea;
+  color: #b3261e;
+  border: 1px solid #f6c6c2;
+}
+
+/* Responsive base ------------------------------------------------------------ */
+
+@media (max-width: 980px) {
+  :root {
+    --header-h: 96px;
+  }
+}

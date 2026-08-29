@@ -1,138 +1,67 @@
-  <app-header></app-header>
-  <div class="contact-page">
-    <!-- Banner Section -->
-    <div class="banner position-relative">
-      <img
-        [src]="bannerImage"
-        alt="Contact Us Banner"
-        class="img-fluid w-100 banner-image"
-      />
-      <div class="banner-overlay"></div>
-      <div class="banner-text position-absolute text-white text-center">
-        <h1 class="fw-bold display-6">{{ bannerHeading }}</h1>
-        <p class="lead">{{ bannerSubheading }}</p>
-      </div>
+<app-header></app-header>
+
+<section class="page-banner" [style.background-image]="'url(' + bannerImage + ')'">
+  <div class="wrap">
+    <div class="breadcrumb-row"><a routerLink="/home">Home</a> <app-icon name="chevron-right" [size]="12"></app-icon> <span>Contact</span></div>
+    <span class="eyebrow">Get in touch</span>
+    <h1>We would love to hear from you</h1>
+    <p>New installation, a repair, a spares order, or just a question. Reach us any way that works for you.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap two-col">
+    <div class="form-card">
+      <h3>Send us a message</h3>
+      <app-enquiry-form [showMessage]="true" [messageRequired]="true" ctaLabel="Submit"></app-enquiry-form>
     </div>
 
-    <!-- Contact Content -->
-    <div class="container py-5">
-      <div class="row g-3 align-items-stretch">
-        <!-- Left Column: Contact Form -->
-        <div class="col-md-6">
-          <div class="p-4 bg-white border h-100">
-            <h4 class="mb-3">Send Us a Message</h4>
-            <!-- Success Alert (Visible after submission) -->
-<div *ngIf="showAlert" class="alert alert-success text-center" role="alert">
-  ✅ Your message has been sent successfully! We will get back to you soon.
-</div>
-            <form [formGroup]="contactForm" >
-              <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  class="form-control"
-                  formControlName="name"
-                  required
-                />
-              </div>
+    <div class="details">
+      <h3>Contact details</h3>
 
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  class="form-control"
-                  formControlName="email"
-                  required
-                />
-              </div>
+      <div class="detail-row">
+        <span class="ico"><app-icon name="map-pin" [size]="18"></app-icon></span>
+        <div><strong>Address</strong><p>{{ business.addressLine }}</p></div>
+      </div>
+      <div class="detail-row">
+        <span class="ico"><app-icon name="phone" [size]="18"></app-icon></span>
+        <div><strong>Phone</strong><p>{{ business.phone }}</p></div>
+      </div>
+      <div class="detail-row">
+        <span class="ico"><app-icon name="fax" [size]="18"></app-icon></span>
+        <div><strong>Fax</strong><p>{{ business.fax }}</p></div>
+      </div>
+      <div class="detail-row">
+        <span class="ico"><app-icon name="phone" [size]="18"></app-icon></span>
+        <div><strong>Mobile / WhatsApp</strong><p>{{ business.mobileDisplay }}</p></div>
+      </div>
+      <div class="detail-row">
+        <span class="ico"><app-icon name="mail" [size]="18"></app-icon></span>
+        <div><strong>Email</strong><p>{{ business.email }}</p></div>
+      </div>
 
-              <div class="mb-3">
-                <label for="phone" class="form-label">Phone Number</label>
-                <input
-                  type="text"
-                  id="phone"
-                  class="form-control"
-                  formControlName="phone_number"
-                  required
-                />
-              </div>
+      <div class="quick-actions">
+        <a [href]="'tel:+91' + business.mobile" class="btn btn-navy-outline btn-sm">
+          <app-icon name="phone" [size]="15"></app-icon> Call now
+        </a>
+        <a [href]="'mailto:' + business.email" class="btn btn-navy-outline btn-sm">
+          <app-icon name="mail" [size]="15"></app-icon> Email us
+        </a>
+      </div>
 
-              <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea
-                  id="message"
-                  rows="5"
-                  class="form-control"
-                  formControlName="message"
-                  required
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                class="btn btn-primary"
-                [disabled]="contactForm.invalid"
-                (click)="onSubmit()"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <!-- Right Column: Contact Details -->
-        <div class="col-md-6">
-          <div class="p-4 bg-white border h-100">
-            <h4 class="mb-3">Contact Details</h4>
-            <!-- Address -->
-            <div class="d-flex align-items-start mb-3">
-              <i class="fas fa-map-marker-alt me-3 fa-2x text-primary"></i>
-              <div>
-                <strong>Address:</strong>
-                <p class="mb-0">{{ addressLine }}</p>
-              </div>
-            </div>
-
-            <!-- Phone -->
-            <div class="d-flex align-items-start mb-3">
-              <i class="fas fa-phone me-3 fa-2x text-primary"></i>
-              <div>
-                <strong>Phone:</strong>
-                <p class="mb-0">{{ phone }}</p>
-              </div>
-            </div>
-
-            <!-- Fax -->
-            <div class="d-flex align-items-start mb-3">
-              <i class="fas fa-fax me-3 fa-2x text-primary"></i>
-              <div>
-                <strong>Fax:</strong>
-                <p class="mb-0">{{ fax }}</p>
-              </div>
-            </div>
-
-            <!-- Mobile -->
-            <div class="d-flex align-items-start mb-3">
-              <i class="fas fa-mobile-alt me-3 fa-2x text-primary"></i>
-              <div>
-                <strong>Mobile:</strong>
-                <p class="mb-0">{{ mobile }}</p>
-              </div>
-            </div>
-
-            <!-- Email -->
-            <div class="d-flex align-items-start">
-              <i class="fas fa-envelope me-3 fa-2x text-primary"></i>
-              <div>
-                <strong>Email:</strong>
-                <p class="mb-0">{{ email }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="map">
+        <iframe
+          [src]="mapEmbedUrl"
+          width="100%"
+          height="220"
+          style="border:0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="P.P. Cooling Towers location"
+        ></iframe>
       </div>
     </div>
   </div>
-  <app-footer></app-footer>
+</section>
+
+<app-footer></app-footer>

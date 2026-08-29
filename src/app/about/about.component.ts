@@ -1,35 +1,42 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
+import { EnquiryFormComponent } from '../enquiry-form/enquiry-form.component';
+import { IconComponent } from '../icon/icon.component';
+import { clients } from '../json-data/clients';
+import { products } from '../json-data/product';
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule, FooterComponent, HeaderComponent],
+  standalone: true,
+  imports: [CommonModule, RouterModule, FooterComponent, HeaderComponent, EnquiryFormComponent, IconComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })
 export class AboutComponent {
-  bannerImage =
-    'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop';
+  bannerImage = 'assets/carousel/carousel2.jpg';
+  clientCount = clients.length;
+  productCount = products.length;
 
-  // Main heading / short text on the banner
-  bannerHeading = 'P.P. Cooling Towers';
-  bannerSubheading = 'Leading the Way in Efficient Cooling Solutions';
-
-  // Intro text: lines from your message
   introParagraphs = [
-    `Greetings from P.P. Cooling Towers!`,
-    `We take this opportunity to introduce our company. The P.P. Cooling Tower is now in the area of cooling tower industry. Specifically, we Manufacture, Repair and maintain cooling towers with any capacity. Beside these, we also provide the spare parts of cooling towers.`,
-    `In the very short regime, we have rendered our service to numerous companies of Delhi and NCR. And we are very proud to say that many of them are much satisfied and exultant with our dedicated works.`,
-    `We have a team of dynamic, energetic and experienced people. We keep major thrust on the punctuality of the completion of Assignment. Cost wise, we are highly competitive to the older companies. So the abstract is “Cost Saving with Excellence”.`,
-    `So it’s a humble request to you and your company from P.P.Cooling Towers and its working team that give us a pleasure to work for you and make good Business term.`,
-    `We look forward to a longstanding mutually beneficial relationship.`,
+    `We take this opportunity to introduce our company. P.P. Cooling Towers has been serving the cooling tower industry, specifically to manufacture, repair and maintain cooling towers of any capacity. Beside these, we also supply the spare parts for cooling towers.`,
+    `In a short span, we have rendered our service to numerous companies across Delhi and NCR, and we are proud to say that many of them are satisfied and delighted with our dedicated work.`,
+    `We have a team of dynamic, energetic and experienced people. We keep a major thrust on the punctuality of completion of assignments. Cost-wise, we are highly competitive against much older companies, so the abstract is "Cost Saving with Excellence".`,
   ];
 
-  // Closing lines (signature, etc.)
-  signature = `Yours sincerely,
-For P.P.COOLING TOWERS
+  coreFocus = [
+    'Manufacturing cooling towers',
+    'Repair & maintenance',
+    'Spare parts supply',
+    'Cost-effective, timely solutions',
+  ];
 
-Paritosh Kumar`;
+  whyChooseUs = [
+    'Professional & experienced team',
+    'Dedicated & timely completion of projects',
+    'Competitive costs',
+    'Customer satisfaction driven',
+  ];
 }

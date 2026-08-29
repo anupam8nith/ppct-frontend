@@ -1,51 +1,100 @@
-.about-page {
-  background-color: #f8f9fa;
+.two-col {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 56px;
+  align-items: start;
 }
 
-.banner {
-  height: 400px;
-  overflow: hidden;
-  margin-bottom: 0;
-  position: relative;
-}
-
-.banner-image {
-  height: 100%;
-  object-fit: cover;
-}
-
-.banner-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
-}
-
-.banner-text {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-}
-
-.about-us-heading {
-  font-weight: 700;
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.content-box {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-}
-
-.lh-lg {
+.intro p {
+  color: var(--muted);
+  font-size: 15.5px;
   line-height: 1.75;
+  margin-bottom: 18px;
 }
 
-.shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+.signature {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.signature p {
+  margin: 0 0 2px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.signature strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 16px;
+  color: var(--navy-900);
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.side-card {
+  background: var(--sky-100);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.side-card h5 {
+  margin: 0 0 14px;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--navy-800);
+}
+.side-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.side-card li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--navy-800);
+  padding: 8px 0;
+}
+.side-card li app-icon {
+  color: var(--sky-500);
+  flex-shrink: 0;
+}
+.side-card.stats {
+  display: flex;
+  gap: 24px;
+  background: var(--navy-900);
+}
+.side-card.stats .num {
+  display: block;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--sky-400);
+}
+.side-card.stats .lbl {
+  display: block;
+  font-size: 12px;
+  color: #c7d6e2;
+  margin-top: 3px;
+}
+
+.cta-section {
+  background: var(--sky-100);
+}
+.form-wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 900px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
 }

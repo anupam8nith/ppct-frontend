@@ -1,70 +1,362 @@
-/* src/app/app.component.css */
-body {
-  background-color: var(--light-color);
-  color: #333;
+/* Hero ---------------------------------------------------------------- */
+.hero {
+  position: relative;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  padding: 64px 0 60px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(10, 26, 41, 0.94) 15%, rgba(15, 45, 70, 0.72) 55%, rgba(15, 45, 70, 0.42) 100%);
+}
+.hero .wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+}
+.hero h1 {
+  color: #fff;
+  font-size: clamp(30px, 4.2vw, 48px);
+  line-height: 1.12;
+  margin: 16px 0 18px;
+}
+.hero p.lead {
+  font-size: 17px;
+  color: #dce8f0;
+  max-width: 520px;
+  margin-bottom: 26px;
+}
+.cta-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding-top: 20px;
+}
+.hero-stats .stat {
+  padding-right: 26px;
+  margin-right: 26px;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  margin-bottom: 10px;
+}
+.hero-stats .stat:last-child {
+  border-right: none;
+}
+.hero-stats .num {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--sky-400);
+}
+.hero-stats .lbl {
+  font-size: 12px;
+  color: #c7d6e2;
+  max-width: 150px;
+  margin-top: 2px;
+}
+.hero-card {
+  background: rgba(15, 36, 56, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.hero-card h3 {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+.hero-card ul {
+  list-style: none;
+  padding: 0;
+}
+.hero-card li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  color: #dce8f0;
+  padding: 9px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.hero-card li:first-child {
+  border-top: none;
+}
+.hero-card li app-icon {
+  color: var(--sky-400);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* Trust bar ------------------------------------------------------------ */
+.trust {
+  background: var(--sky-100);
+  padding: 30px 0;
+  border-bottom: 1px solid var(--border);
+}
+.trust .wrap {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.trust .lbl {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy-700);
+  white-space: nowrap;
+}
+.trust .logos {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.trust .logos img {
+  height: 28px;
+  width: auto;
+  filter: grayscale(1) opacity(0.62);
+}
+
+/* What we do ------------------------------------------------------------ */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px 22px;
+  box-shadow: var(--shadow-sm);
+}
+.card h4 {
+  font-size: 16px;
+  margin: 16px 0 8px;
+}
+.card p {
+  font-size: 13.5px;
+  color: var(--muted);
   margin: 0;
-  font-family: Arial, sans-serif;
 }
 
-.products-section img {
-  height: 200px; /* or any desired fixed height */
-  width: 100%; /* ensures the image fills the card width */
-  object-fit: cover; /* crops the image to fill the area without distorting it */
+/* Products ---------------------------------------------------------------- */
+.products {
+  background: var(--sky-100);
 }
-
-/* Carousel captions to ensure vertical center might need overrides if required. */
-.carousel-caption {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.product-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+.product-card .thumb {
+  height: 130px;
+  background: linear-gradient(135deg, var(--navy-800), var(--navy-600));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sky-400);
+}
+.product-card .body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.product-card h4 {
+  font-size: 15.5px;
+  margin: 0 0 8px;
+}
+.product-card p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 16px;
+  flex: 1;
+}
+.product-card .link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--navy-700);
+  text-decoration: none;
+}
+.products-foot {
   text-align: center;
-  // color: #000;
+  margin-top: 36px;
 }
 
-.banner-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0));
-}
-
-.footer {
-  background-color: var(--secondary-color);
+/* Stats / why choose us band ------------------------------------------------ */
+.band {
+  background: var(--navy-900);
   color: #fff;
 }
-
-/* Example only, adjust as needed */
-
-#contact {
-  /* If you have a global background, these lines ensure the contact section is see-through */
-  background: transparent;
+.band .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.band h2 {
+  color: #fff;
+  font-size: clamp(24px, 3vw, 32px);
+  margin: 10px 0 16px;
+}
+.band > .wrap > div:first-child p {
+  color: #b9cada;
+  font-size: 15px;
+  margin-bottom: 28px;
+  max-width: 440px;
+}
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.stat-grid .num {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--sky-400);
+}
+.stat-grid .lbl {
+  font-size: 13px;
+  color: #c7d6e2;
+  margin-top: 5px;
+}
+.choose-title {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.choose-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.choose-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 15px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 14.5px;
+  color: #e4ecf3;
+}
+.choose-list li:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+.choose-list .chk {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(127, 207, 227, 0.15);
+  color: var(--sky-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-form {
-  background: transparent;
+/* About teaser --------------------------------------------------------------- */
+.about-teaser .wrap {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 52px;
+  align-items: center;
+}
+.about-teaser img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.about-teaser h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  margin: 10px 0 16px;
+}
+.about-teaser p {
+  color: var(--muted);
+  font-size: 15px;
+}
+.about-teaser .sign {
+  margin-top: 22px;
+  font-size: 14px;
+  color: var(--navy-800);
+}
+.about-teaser .sign strong {
+  display: block;
+  font-size: 15px;
+  color: var(--navy-900);
 }
 
-.form-label {
-  font-weight: 600;
+/* CTA form ------------------------------------------------------------------- */
+.cta-band {
+  background: linear-gradient(120deg, var(--navy-800), var(--navy-700));
+  color: #fff;
+  padding: 60px 0;
 }
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* 50% black overlay */
-  z-index: 1;
+.cta-band .inner {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 40px;
+  align-items: center;
+}
+.cta-band h2 {
+  color: #fff;
+  font-size: 25px;
+  margin: 10px 0 10px;
+}
+.cta-band p {
+  color: #cfe0ec;
+  font-size: 14.5px;
+  margin: 0;
 }
 
-.client-logo {
-  max-height: 60px; /* or any suitable size */
-  object-fit: contain;
+/* Responsive ------------------------------------------------------------------ */
+@media (max-width: 980px) {
+  .hero .wrap,
+  .band .wrap,
+  .about-teaser .wrap,
+  .cta-band .inner {
+    grid-template-columns: 1fr;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
 }
-#clients {
-  /* Example background styling */
-  background: linear-gradient(to bottom, #fff, #e0f3f9);
+
+@media (max-width: 640px) {
+  .cta-band .inner {
+    padding: 26px;
+  }
 }

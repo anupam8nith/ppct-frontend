@@ -1,5 +1,73 @@
-<footer class="text-center text-white py-3" style="background-color: #01579b">
-  <div class="container">
-    <p class="mb-0">&copy; 2025 PPCT. All rights reserved.</p>
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="fbrand">
+          <img src="assets/logo.png" alt="P.P. Cooling Towers logo" />
+          <span class="name">P.P. COOLING TOWERS</span>
+        </div>
+        <p>
+          Manufacturing, repairing and maintaining industrial cooling towers across Delhi NCR
+          plus genuine spare parts, direct from the people who build them.
+        </p>
+        <div class="socials">
+          <a [href]="whatsappHref" target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="WhatsApp">
+            <app-icon name="whatsapp" [size]="18"></app-icon>
+          </a>
+          <a [href]="'mailto:' + business.email" title="Email us" aria-label="Email">
+            <app-icon name="mail" [size]="18"></app-icon>
+          </a>
+          <a
+            [href]="business.linkedinUrl || null"
+            [class.disabled]="!business.linkedinUrl"
+            [attr.title]="business.linkedinUrl ? 'LinkedIn' : 'LinkedIn (coming soon)'"
+            [attr.target]="business.linkedinUrl ? '_blank' : null"
+            rel="noopener"
+            aria-label="LinkedIn"
+          >
+            <app-icon name="linkedin" [size]="18"></app-icon>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a routerLink="/about">About Us</a></li>
+          <li><a routerLink="/products">Products</a></li>
+          <li><a routerLink="/precious-clients">Precious Clients</a></li>
+          <li><a routerLink="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Get in touch</h5>
+        <div class="contact-line">
+          <span class="ico"><app-icon name="map-pin" [size]="16"></app-icon></span>
+          <span>{{ business.addressLine }}</span>
+        </div>
+        <div class="contact-line">
+          <span class="ico"><app-icon name="phone" [size]="16"></app-icon></span>
+          <span>{{ business.phone }} (Phone)</span>
+        </div>
+        <div class="contact-line">
+          <span class="ico"><app-icon name="fax" [size]="16"></app-icon></span>
+          <span>{{ business.fax }} (Fax)</span>
+        </div>
+        <div class="contact-line">
+          <span class="ico"><app-icon name="phone" [size]="16"></app-icon></span>
+          <span>{{ business.mobileDisplay }}</span>
+        </div>
+        <div class="contact-line">
+          <span class="ico"><app-icon name="mail" [size]="16"></app-icon></span>
+          <span>{{ business.email }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <span>&copy; {{ year }} P.P. Cooling Towers. All rights reserved.</span>
+      <span>Manufacturing &middot; Repair &middot; Maintenance &middot; Spare Parts</span>
+    </div>
   </div>
 </footer>

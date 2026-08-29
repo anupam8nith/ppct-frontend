@@ -1,98 +1,89 @@
 <app-header></app-header>
-<div class="container py-5" *ngIf="product">
-  <!-- Banner image -->
-  <div class="mb-3">
-    <!-- Example using a simple Unicode arrow. 
-         If you have a preferred icon library (FontAwesome, Bootstrap Icons), replace it accordingly. -->
-    <a routerLink="/products" class="text-decoration-none">
-      &larr; Back to Products
-    </a>
-  </div>
 
-  <!-- Banner image at top -->
-  <div class="mb-4">
-    <img
-      [src]="product.bannerImage"
-      class="img-fluid w-100 rounded"
-      [alt]="product.name"
-      style="max-height: 400px; object-fit: cover"
-    />
-  </div>
-
-  <!-- Product name & description -->
-  <h2 class="mb-3">{{ product.name }}</h2>
-  <p>{{ product.description }}</p>
-
-  <div class="row my-4 align-items-center">
-    <!-- Applications Column -->
-    <div class="col-md-4">
-      <h5>Applications</h5>
-      <ul>
-        <li *ngFor="let app of product.applications">{{ app }}</li>
-      </ul>
+<ng-container *ngIf="product">
+  <section class="page-banner detail-banner">
+    <div class="wrap">
+      <div class="breadcrumb-row">
+        <a routerLink="/home">Home</a> <app-icon name="chevron-right" [size]="12"></app-icon>
+        <a routerLink="/products">Products</a> <app-icon name="chevron-right" [size]="12"></app-icon>
+        <span>{{ product.name }}</span>
+      </div>
+      <span class="eyebrow">Product</span>
+      <h1>{{ product.name }}</h1>
+      <p>{{ product.description }}</p>
     </div>
+  </section>
 
-    <!-- Advantages Column -->
-    <div class="col-md-4">
-      <h5>Advantages</h5>
-      <ul>
-        <li *ngFor="let adv of product.advantages">{{ adv }}</li>
-      </ul>
+  <section class="section">
+    <div class="wrap">
+      <a routerLink="/products" class="back-link">
+        <app-icon name="arrow-left" [size]="15"></app-icon> Back to all products
+      </a>
+
+      <div class="detail-grid">
+        <div class="visual">
+          <div class="hero-tile"><app-icon [name]="icon" [size]="72"></app-icon></div>
+          <div class="real-photo" *ngIf="realPhoto">
+            <img [src]="realPhoto" [alt]="product.name + ' installed in the field'" />
+            <span class="tag">From an actual PPCT installation, not a stock photo</span>
+          </div>
+        </div>
+
+        <div class="info">
+          <div class="info-block">
+            <h5><app-icon name="check" [size]="15"></app-icon> Applications</h5>
+            <ul>
+              <li *ngFor="let app of product.applications">{{ app }}</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h5><app-icon name="check" [size]="15"></app-icon> Advantages</h5>
+            <ul>
+              <li *ngFor="let adv of product.advantages">{{ adv }}</li>
+            </ul>
+          </div>
+
+          <div class="enquire-box">
+            <h4>Enquire about this product</h4>
+            <p>Tell us your quantity and tower spec, we'll quote fast.</p>
+            <app-enquiry-form [context]="product.name" ctaLabel="Send Enquiry"></app-enquiry-form>
+          </div>
+        </div>
+      </div>
+
+      <div class="working-principle">
+        <h3>How a cooling tower works</h3>
+        <p>
+          Cooling towers use evaporative cooling: heat is transferred from water to air through
+          evaporation and direct heat exchange. This lowers the temperature of water used in
+          industrial processes or HVAC systems.
+        </p>
+        <ol>
+          <li><strong>Hot water distribution.</strong> Warm water is pumped into the tower and spread across the fill media.</li>
+          <li><strong>Air and water interaction.</strong> Fans draw air through the falling water, maximizing contact.</li>
+          <li><strong>Heat transfer.</strong> Evaporative cooling and direct heat exchange pull heat out of the water.</li>
+          <li><strong>Cooling of water.</strong> The water's temperature drops as it descends through the fill.</li>
+          <li><strong>Release of warm, moist air.</strong> Heat and moisture exit through the top of the tower.</li>
+          <li><strong>Recirculation.</strong> The cooled water returns to the process it came from.</li>
+        </ol>
+        <p>
+          <strong>Key components:</strong> fill material, fans, drift eliminators, nozzles and the
+          cooling basin. <strong>Typical applications:</strong> power plants, chemical plants, HVAC
+          systems, petroleum refineries and manufacturing facilities.
+        </p>
+      </div>
+
+      <div class="related" *ngIf="related.length">
+        <h3>Related products</h3>
+        <div class="related-grid">
+          <a *ngFor="let r of related" [routerLink]="['/products', r.id]" class="related-card">
+            <div class="thumb"><app-icon [name]="r.icon" [size]="32"></app-icon></div>
+            <span>{{ r.name }}</span>
+          </a>
+        </div>
+      </div>
     </div>
-
-    <!-- Secondary Image Column -->
-    <div class="col-md-4 text-center">
-      <img
-        [src]="product.secondImage"
-        class="img-fluid rounded"
-        [alt]="product.name + ' second image'"
-      />
-    </div>
-  </div>
-
-  <!-- If you'd like to show the 'Working Principle' on each detail page, add it here: -->
-  <div class="working-principle mt-5">
-    <h4>Working Principle of Cooling Towers</h4>
-    <p>
-      Cooling towers use evaporative cooling, where heat is transferred from
-      water to air through evaporation and direct heat exchange. This process
-      cools down the water used in industrial processes or HVAC systems.
-    </p>
-    <!-- You can add the step-by-step details, components, etc. from your text if needed -->
-    <h6>Step-by-Step Working Principle</h6>
-    <ol>
-      <li>
-        <strong>Hot Water Distribution:</strong> Warm water is pumped in...
-      </li>
-      <li>
-        <strong>Air and Water Interaction:</strong> Airflow is introduced...
-      </li>
-      <li>
-        <strong>Heat Transfer Mechanisms:</strong> Evaporative cooling and
-        direct heat exchange.
-      </li>
-      <li>
-        <strong>Cooling of Water:</strong> The water's temperature drops...
-      </li>
-      <li>
-        <strong>Release of Warm, Moist Air:</strong> Heat and moisture exit...
-      </li>
-      <li>
-        <strong>Recirculation:</strong> The cooled water returns to the
-        process...
-      </li>
-    </ol>
-    <p>
-      <strong>Key Components:</strong> Fill Material, Fans, Drift Eliminators,
-      Nozzles, Cooling Basin. The core principle is using the latent heat of
-      vaporization: as water evaporates, it absorbs a large amount of heat from
-      the remaining water, lowering its temperature.
-    </p>
-    <p>
-      <strong>Applications:</strong> Power plants, Chemical plants, HVAC
-      systems, Petroleum refineries, etc.
-    </p>
-  </div>
-</div>
+  </section>
+</ng-container>
 
 <app-footer></app-footer>

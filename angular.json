@@ -33,12 +33,9 @@
                 "src/assets"
             ],
             "styles": [
-                "src/styles.scss",
-                "node_modules/bootstrap/dist/css/bootstrap.min.css"
+                "src/styles.scss"
             ],
-            "scripts": [
-                "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ],
+            "scripts": [],
             "server": "src/main.server.ts",
             "ssr": false,
             "prerender":false
@@ -53,8 +50,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "6kB",
+                  "maximumError": "10kB"
                 }
               ],
               "outputHashing": "all"

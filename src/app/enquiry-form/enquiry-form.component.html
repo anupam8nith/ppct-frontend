@@ -1,0 +1,59 @@
+<div class="enquiry-form" [class.dark]="variant === 'dark'">
+  <div *ngIf="showAlert" class="alert alert-success" role="alert">
+    Thanks. Your message has been sent, we'll get back to you shortly.
+  </div>
+  <div *ngIf="showError" class="alert alert-error" role="alert">
+    Something went wrong sending that. Please try WhatsApp or call us directly.
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <div class="grid">
+      <div class="field" [class.on-dark]="variant === 'dark'">
+        <label for="ef-name">Name</label>
+        <input id="ef-name" type="text" formControlName="name" placeholder="Your name" />
+        <div class="err" *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+          Please enter your name.
+        </div>
+      </div>
+
+      <div class="field" [class.on-dark]="variant === 'dark'">
+        <label for="ef-phone">Phone number</label>
+        <input id="ef-phone" type="text" formControlName="phone_number" placeholder="98xxxxxxxx" />
+        <div class="err" *ngIf="form.get('phone_number')?.invalid && form.get('phone_number')?.touched">
+          Enter a valid 10-digit Indian mobile number.
+        </div>
+      </div>
+
+      <div class="field full" [class.on-dark]="variant === 'dark'">
+        <label for="ef-email">Email</label>
+        <input id="ef-email" type="email" formControlName="email" placeholder="you@company.com" />
+        <div class="err" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+          Enter a valid email address.
+        </div>
+      </div>
+
+      <div class="field full" [class.on-dark]="variant === 'dark'" *ngIf="showMessage">
+        <label for="ef-message">Message</label>
+        <textarea id="ef-message" rows="4" formControlName="message" placeholder="Tell us what you need..."></textarea>
+        <div class="err" *ngIf="form.get('message')?.invalid && form.get('message')?.touched">
+          Please add a short message.
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="btn btn-amber" [disabled]="form.invalid">
+        <app-icon name="send" [size]="16"></app-icon>
+        {{ ctaLabel }}
+      </button>
+      <a *ngIf="showWhatsapp" [href]="whatsappHref" target="_blank" rel="noopener" class="whatsapp-link">
+        <app-icon name="whatsapp" [size]="18"></app-icon>
+        chat on WhatsApp
+      </a>
+      <a [href]="mailHref" class="mail-link">
+        <app-icon name="mail" [size]="17"></app-icon>
+        email us
+      </a>
+    </div>
+  </form>
+</div>
