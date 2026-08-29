@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -26,6 +26,8 @@ import { BUSINESS } from '../business-info';
   styleUrl: './homepage.component.scss',
 })
 export class HomepageComponent implements OnInit, OnDestroy {
+  constructor(private route: ActivatedRoute) {}
+
   business = BUSINESS;
 
   heroImages = [
@@ -77,6 +79,18 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.startHeroSlider();
+    this.route.fragment.subscribe((frag) => {
+      if (frag) {
+        setTimeout(() => {
+          if (typeof document !== 'undefined') {
+            const el = document.getElementById(frag);
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        }, 150);
+      }
+    });
   }
 
   ngOnDestroy() {
@@ -127,12 +141,16 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   openLightbox(item: GalleryItem) {
     this.activeLightboxItem = item;
-    document.body.style.overflow = 'hidden';
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = 'hidden';
+    }
   }
 
   closeLightbox() {
     this.activeLightboxItem = null;
-    document.body.style.overflow = '';
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
+    }
   }
 
   @HostListener('window:keydown.escape')
