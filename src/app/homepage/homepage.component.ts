@@ -53,16 +53,24 @@ export class HomepageComponent implements OnInit, OnDestroy {
   activeLightboxItem: GalleryItem | null = null;
 
   clients = [
-    { name: 'LG', logoUrl: 'assets/clients/logo-lg.svg' },
-    { name: 'Pepsi', logoUrl: 'assets/clients/pepsi.svg' },
+    { name: 'LG Electronics', logoUrl: 'assets/clients/logo-lg.svg' },
+    { name: 'PepsiCo', logoUrl: 'assets/clients/pepsi.svg' },
+    { name: 'Escorts Group', logoUrl: 'assets/clients/escorts.svg' },
+    { name: 'Bata India', logoUrl: 'assets/clients/bata-4.svg' },
+    { name: 'Lakhani Footwear', logoUrl: 'assets/clients/lakhani.jpg' },
+    { name: 'ITC Limited', logoUrl: 'assets/clients/itco.png' },
     { name: 'JBM Group', logoUrl: 'assets/clients/jbm-group.png' },
-    { name: 'NHPC', logoUrl: 'assets/clients/nhpc.svg' },
-    { name: 'Bata', logoUrl: 'assets/clients/bata-4.svg' },
-    { name: 'JLL', logoUrl: 'assets/clients/jll.png' },
-    { name: 'ITC', logoUrl: 'assets/clients/itco.png' },
-    { name: 'CBRE', logoUrl: 'assets/clients/cbre-group.png' },
-    { name: 'Escorts', logoUrl: 'assets/clients/escorts.svg' },
-    { name: 'BILT', logoUrl: 'assets/clients/bilt.svg' },
+    { name: 'Indian Ordnance Factory', logoUrl: 'assets/clients/ordnance-factory.jpg' },
+    { name: 'NHPC Limited', logoUrl: 'assets/clients/nhpc.svg' },
+    { name: 'BILT Paper', logoUrl: 'assets/clients/bilt.svg' },
+    { name: 'JLL India', logoUrl: 'assets/clients/jll.png' },
+    { name: 'CBRE Group', logoUrl: 'assets/clients/cbre-group.png' },
+    { name: 'ISGEC Heavy Engineering', logoUrl: 'assets/clients/isgec.svg' },
+    { name: 'Supreme Industries', logoUrl: 'assets/clients/supreme.svg' },
+    { name: 'Radisson Hotels', logoUrl: 'assets/clients/radisson.svg' },
+    { name: 'Krishna Maruti', logoUrl: 'assets/clients/krishna-maruti.svg' },
+    { name: 'Uniproducts India', logoUrl: 'assets/clients/uniproducts.svg' },
+    { name: 'Sona Okegawa', logoUrl: 'assets/clients/sona-group.svg' },
   ];
 
   clientCount = allClients.length;

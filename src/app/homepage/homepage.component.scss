@@ -289,36 +289,60 @@
   border-color: #fff;
 }
 
-/* Trust Continuous Marquee --------------------------------------------- */
+/* Trust Continuous Marquee (Highlighted & Prominent) ----------------- */
 .trust {
-  background: #f4f9fd;
-  padding: 24px 0 28px;
+  background: linear-gradient(180deg, #f8fbfd 0%, #edf5fa 100%);
+  padding: 56px 0 60px;
+  border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   overflow: hidden;
+  position: relative;
 }
 .trust-head {
   text-align: center;
-  margin-bottom: 16px;
+  max-width: 720px;
+  margin: 0 auto 32px;
 }
-.trust .lbl {
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(238, 125, 31, 0.12);
+  border: 1px solid rgba(238, 125, 31, 0.3);
+  color: var(--amber-dark);
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--navy-700);
+}
+.trust-head h2 {
+  font-size: clamp(22px, 2.6vw, 30px);
+  color: var(--navy-900);
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+.trust-head p {
+  font-size: 14.5px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
 }
 .marquee-wrapper {
   width: 100%;
   overflow: hidden;
   position: relative;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  padding: 10px 0;
 }
 .marquee-track {
   display: flex;
   width: max-content;
-  gap: 50px;
-  animation: marquee 30s linear infinite;
+  gap: 22px;
+  animation: marquee 20s linear infinite;
 }
 .marquee-track:hover {
   animation-play-state: paused;
@@ -327,17 +351,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 110px;
 }
-.logo-item img {
-  height: 32px;
+.logo-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 175px;
+  height: 88px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  cursor: default;
+}
+.logo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px -6px rgba(15, 36, 56, 0.16);
+  border-color: var(--sky-500);
+}
+.logo-card img {
+  height: 38px;
+  max-width: 135px;
   width: auto;
-  filter: grayscale(1) opacity(0.65);
+  object-fit: contain;
+  filter: grayscale(0.7) opacity(0.85);
   transition: filter 0.25s ease, transform 0.25s ease;
 }
-.logo-item:hover img {
+.logo-card:hover img {
   filter: grayscale(0) opacity(1);
-  transform: scale(1.08);
+  transform: scale(1.04);
+}
+.client-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--navy-800);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 @keyframes marquee {
   0% {

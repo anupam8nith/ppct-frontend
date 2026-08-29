@@ -112,19 +112,29 @@
   </div>
 </section>
 
-<!-- Continuous Infinite Logo Marquee -->
+<!-- Continuous Infinite Logo Marquee (Prominent & Highlighted) -->
 <section class="trust">
   <div class="wrap trust-head">
-    <span class="lbl">Trusted by top enterprises &amp; engineering leaders across Delhi NCR</span>
+    <div class="trust-badge">
+      <app-icon name="check" [size]="14"></app-icon> 65+ Verified Industrial Clients
+    </div>
+    <h2>Trusted by top enterprises &amp; engineering leaders across Delhi NCR</h2>
+    <p>Providing direct-from-manufacturer cooling tower engineering, fabrication, repairs and genuine spares since 2004.</p>
   </div>
   <div class="marquee-wrapper">
     <div class="marquee-track">
       <div class="logo-item" *ngFor="let client of clients">
-        <img [src]="client.logoUrl" [alt]="client.name + ' logo'" />
+        <div class="logo-card">
+          <img [src]="client.logoUrl" [alt]="client.name + ' logo'" />
+          <span class="client-name">{{ client.name }}</span>
+        </div>
       </div>
       <!-- Duplicate for infinite seamless scroll -->
       <div class="logo-item" *ngFor="let client of clients">
-        <img [src]="client.logoUrl" [alt]="client.name + ' logo'" />
+        <div class="logo-card">
+          <img [src]="client.logoUrl" [alt]="client.name + ' logo'" />
+          <span class="client-name">{{ client.name }}</span>
+        </div>
       </div>
     </div>
   </div>
