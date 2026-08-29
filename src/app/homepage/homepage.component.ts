@@ -171,7 +171,6 @@ export class HomepageComponent implements OnInit, OnDestroy {
   activeSceneIndex = 0;
   isPlayingExplainer = true;
   explainerInterval: any;
-  showPromptModal = false;
 
   // Gallery state
   gallery = galleryItems;
@@ -303,20 +302,6 @@ export class HomepageComponent implements OnInit, OnDestroy {
     );
   }
 
-  openPromptModal() {
-    this.showPromptModal = true;
-    if (typeof document !== 'undefined') {
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  closePromptModal() {
-    this.showPromptModal = false;
-    if (typeof document !== 'undefined') {
-      document.body.style.overflow = '';
-    }
-  }
-
   // Gallery methods
   setCategory(cat: 'All' | 'Installations' | 'Components' | 'Facility') {
     this.activeCategory = cat;
@@ -347,9 +332,6 @@ export class HomepageComponent implements OnInit, OnDestroy {
   onEscape() {
     if (this.activeLightboxItem) {
       this.closeLightbox();
-    }
-    if (this.showPromptModal) {
-      this.closePromptModal();
     }
   }
 }
