@@ -25,13 +25,21 @@ jobs:
       - name: Build Application
         run: npm run build
 
-      - name: Deploy to Firebase Hosting
+      - name: Deploy to Both Firebase Hosting Sites
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PPCOOLINGTOWERSFORYOU }}
         run: |
           if [ -n "$FIREBASE_TOKEN" ]; then
-            npx firebase-tools deploy --only hosting --project ppcoolingtowersforyou --token "$FIREBASE_TOKEN"
+            echo "Deploying to both sites using FIREBASE_TOKEN..."
+            npx firebase-tools deploy --only hosting --project ppcoolingtowersforyou --token "$FIREBASE_TOKEN" --non-interactive
+          elif [ -n "$FIREBASE_SERVICE_ACCOUNT" ]; then
+            echo "Deploying to both sites using Service Account..."
+            echo "$FIREBASE_SERVICE_ACCOUNT" > /tmp/service-account.json
+            export GOOGLE_APPLICATION_CREDENTIALS=/tmp/service-account.json
+            npx firebase-tools deploy --only hosting --project ppcoolingtowersforyou --non-interactive
           else
-            echo "FIREBASE_TOKEN secret is not set. Please add FIREBASE_TOKEN in GitHub repository secrets (Settings > Secrets and variables > Actions)."
+            echo "ERROR: Neither FIREBASE_TOKEN nor FIREBASE_SERVICE_ACCOUNT_PPCOOLINGTOWERSFORYOU secret is set in GitHub repository secrets."
+            echo "Please configure either secret in GitHub Repository Settings -> Secrets and variables -> Actions."
             exit 1
           fi
