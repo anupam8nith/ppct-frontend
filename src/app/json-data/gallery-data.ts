@@ -62,16 +62,66 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: 6,
-    title: 'Compressor & Chiller System',
-    category: 'Installations',
-    categoryLabel: 'Cooling Towers & Systems',
-    image: 'assets/gallery/compressor-chiller-unit.jpg',
-    specs: 'Industrial Heavy Duty / Integrated Piping',
-    description: 'Complete cooling tower and compressor circuit integration built for demanding process temperature control.',
-    highlight: 'Full Lifecycle'
+    title: 'High-Efficiency PVC Honeycomb Fills',
+    category: 'Components',
+    categoryLabel: 'Spares & Components',
+    image: 'assets/products/pvc-fills.jpg',
+    specs: 'Cross-Flute Honeycomb / Virgin PVC / UV Stabilized',
+    description: 'Engineered corrugated PVC fill media blocks designed to maximize water surface exposure and accelerate evaporative cooling.',
+    highlight: 'High Surface Area'
   },
   {
     id: 7,
+    title: 'Target Nozzle PVC Splash Cap',
+    category: 'Components',
+    categoryLabel: 'Spares & Components',
+    image: 'assets/products/pvc-splash-cap.jpg',
+    specs: 'Molded PVC / Multi-Tier Diffuser Discs',
+    description: 'Targeted cooling tower spray nozzle splash cap with engineered deflector rings for uniform micro-droplet water breakup.',
+    highlight: 'Optimized Spray'
+  },
+  {
+    id: 8,
+    title: 'Cellular PVC Drift Eliminator',
+    category: 'Components',
+    categoryLabel: 'Spares & Components',
+    image: 'assets/products/pvc-drift-eliminator.jpg',
+    specs: 'Sinusoidal Cellular Modules / <0.005% Drift Loss',
+    description: 'Aerodynamic wave-profile drift eliminators that capture entrained droplets and drastically reduce water makeup loss.',
+    highlight: 'Low Pressure Drop'
+  },
+  {
+    id: 9,
+    title: 'Distribution Branch Pipe Manifold',
+    category: 'Components',
+    categoryLabel: 'Spares & Components',
+    image: 'assets/products/distribution-branch-pipe.jpg',
+    specs: 'Heavy Gauge Schedule 80 PVC / Threaded Nozzle Ports',
+    description: 'Custom-drilled distribution branch pipes delivering balanced hydraulic water flow to spray nozzles without pressure loss.',
+    highlight: 'Balanced Flow'
+  },
+  {
+    id: 10,
+    title: 'Industrial Long Shaft Motor',
+    category: 'Components',
+    categoryLabel: 'Spares & Components',
+    image: 'assets/products/long-shaft-motor.jpg',
+    specs: 'IP66 Weatherproof / Extended SS Shaft / Cast Iron',
+    description: 'High-efficiency flange-mounted industrial motor with extended stainless steel shaft designed for harsh moist environments.',
+    highlight: 'Heavy Duty IP66'
+  },
+  {
+    id: 11,
+    title: 'FRP Aerodynamic Fan Canopy Stack',
+    category: 'Components',
+    categoryLabel: 'Spares & Components',
+    image: 'assets/products/frp-fan-canopy.jpg',
+    specs: 'Molded FRP Composite / Venturi Recovery Profile',
+    description: 'Venturi recovery fan stack that lowers discharge turbulence and acoustic noise while reducing fan motor power draw.',
+    highlight: 'Venturi Energy Save'
+  },
+  {
+    id: 12,
     title: 'PPCT Manufacturing Plant',
     category: 'Facility',
     categoryLabel: 'Manufacturing Facility',
@@ -81,7 +131,7 @@ export const galleryItems: GalleryItem[] = [
     highlight: 'In-House Facility'
   },
   {
-    id: 8,
+    id: 13,
     title: 'Chiller & DG Cooling Tower System',
     category: 'Installations',
     categoryLabel: 'Cooling Towers & Systems',
@@ -91,7 +141,7 @@ export const galleryItems: GalleryItem[] = [
     highlight: 'Turnkey Project'
   },
   {
-    id: 9,
+    id: 14,
     title: 'Multi-Cell Rooftop Installation',
     category: 'Installations',
     categoryLabel: 'Cooling Towers & Systems',
@@ -101,7 +151,7 @@ export const galleryItems: GalleryItem[] = [
     highlight: 'Proven Performance'
   },
   {
-    id: 10,
+    id: 15,
     title: 'Diesel Generator (DG) Cooling Tower',
     category: 'Installations',
     categoryLabel: 'Cooling Towers & Systems',

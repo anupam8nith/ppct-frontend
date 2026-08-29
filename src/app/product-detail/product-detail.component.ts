@@ -13,13 +13,21 @@ import { products } from '../json-data/product';
 // Everything else uses the icon-tile treatment rather than a mismatched
 // stock photo pretending to be this specific part.
 const REAL_PHOTOS: Record<number, string> = {
-  1: 'assets/gallery/fan-hub-assembly.jpg', // Aluminium Fan Set & Hub
-  2: 'assets/gallery/aluminium-sprinkler.jpg', // Aluminium Alloys Sprinkler
-  3: 'assets/slide3.jpg', // PVC Fills
-  5: 'assets/gallery/pvc-end-cap-63mm.jpg', // PVC End Cap (63 mm)
-  8: 'assets/gallery/tie-rod-adjuster.jpg', // Tie Rod Adjuster
-  12: 'assets/gallery/industrial-fan-blade.jpg', // FRP / Aluminium Fan Blades
-  15: 'assets/gallery/chiller-dg-installation-1.jpg', // Chiller & DG Systems
+  1: 'assets/gallery/fan-hub-assembly.jpg',
+  2: 'assets/gallery/aluminium-sprinkler.jpg',
+  3: 'assets/products/pvc-fills.jpg',
+  4: 'assets/products/pvc-splash-cap.jpg',
+  5: 'assets/gallery/pvc-end-cap-63mm.jpg',
+  6: 'assets/products/pvc-drift-eliminator.jpg',
+  7: 'assets/products/industrial-tie-rod.jpg',
+  8: 'assets/gallery/tie-rod-adjuster.jpg',
+  9: 'assets/products/gi-pipe-clamp.jpg',
+  10: 'assets/products/distribution-branch-pipe.jpg',
+  11: 'assets/products/frp-louvers-flapper.jpg',
+  12: 'assets/gallery/industrial-fan-blade.jpg',
+  13: 'assets/products/long-shaft-motor.jpg',
+  14: 'assets/products/frp-fan-canopy.jpg',
+  15: 'assets/gallery/chiller-dg-installation-1.jpg',
 };
 
 @Component({

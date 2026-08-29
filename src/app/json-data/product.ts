@@ -42,10 +42,8 @@ export const products = [
   {
     id: 3,
     name: 'PVC Fills',
-    bannerImage:
-      'https://images.pexels.com/photos/6313465/pexels-photo-6313465.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop',
-    secondImage:
-      'https://images.pexels.com/photos/4589161/pexels-photo-4589161.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    bannerImage: 'assets/products/pvc-fills.jpg',
+    secondImage: 'assets/slide3.jpg',
     description:
       'High-performance honeycomb & corrugated PVC fill media designed to drastically increase air-water surface contact time for accelerated thermal dissipation.',
     applications: [
@@ -54,7 +52,7 @@ export const products = [
       'Commercial building central HVAC',
     ],
     advantages: [
-      'Engineered cross-flute geometry',
+      'Engineered cross-flute honeycomb geometry',
       'UV and chemical resistant virgin PVC',
       'High structural load capacity',
       'Fire-retardant formulation',
@@ -63,13 +61,11 @@ export const products = [
   {
     id: 4,
     name: 'PVC Splash Cap',
-    bannerImage:
-      'https://images.pexels.com/photos/6313469/pexels-photo-6313469.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop',
-    secondImage:
-      'https://images.pexels.com/photos/6313470/pexels-photo-6313470.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    bannerImage: 'assets/products/pvc-splash-cap.jpg',
+    secondImage: 'assets/products/distribution-branch-pipe.jpg',
     description:
       'Targeted splash caps that ensure optimal kinetic water breakup across upper deck nozzles for maximum evaporative cooling contact.',
-    applications: ['Industrial cooling processes', 'Chemical/petroleum plants'],
+    applications: ['Industrial cooling processes', 'Chemical/petroleum plants', 'Square & package cooling towers'],
     advantages: [
       'Robust molded PVC construction',
       'Quick snap-fit replacement',
@@ -89,10 +85,8 @@ export const products = [
   {
     id: 6,
     name: 'PVC Drift Eliminator',
-    bannerImage:
-      'https://images.pexels.com/photos/5450708/pexels-photo-5450708.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop',
-    secondImage:
-      'https://images.pexels.com/photos/6313461/pexels-photo-6313461.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    bannerImage: 'assets/products/pvc-drift-eliminator.jpg',
+    secondImage: 'assets/products/pvc-fills.jpg',
     description:
       'Aerodynamically contoured cellular eliminators that capture escaping water droplets to reduce drift loss below 0.005% of circulating water.',
     applications: ['Commercial building rooftop towers', 'Industrial process towers', 'Urban environment installations'],
@@ -105,10 +99,8 @@ export const products = [
   {
     id: 7,
     name: 'Industrial Tie Rod',
-    bannerImage:
-      'https://images.pexels.com/photos/4392412/pexels-photo-4392412.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop',
-    secondImage:
-      'https://images.pexels.com/photos/3739123/pexels-photo-3739123.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    bannerImage: 'assets/products/industrial-tie-rod.jpg',
+    secondImage: 'assets/gallery/tie-rod-adjuster.jpg',
     description:
       'High-tensile steel tie rods with anti-rust coatings providing critical internal structural bracing for cooling tower casing panels and fill supports.',
     applications: ['Tower structural casing assemblies', 'Large square and rectangular industrial towers'],
@@ -135,10 +127,8 @@ export const products = [
   {
     id: 9,
     name: 'GI Clamp & Fastener Sets',
-    bannerImage:
-      'https://images.pexels.com/photos/5450712/pexels-photo-5450712.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop',
-    secondImage:
-      'https://images.pexels.com/photos/5450716/pexels-photo-5450716.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    bannerImage: 'assets/products/gi-pipe-clamp.jpg',
+    secondImage: 'assets/products/industrial-tie-rod.jpg',
     description:
       'Galvanized Iron and stainless steel pipe clamps engineered for securing high-vibration headers, branch lines, and structural trusses.',
     applications: ['Pipe mounting and support', 'Framework reinforcement', 'Fill pack hanger brackets'],
@@ -151,10 +141,8 @@ export const products = [
   {
     id: 10,
     name: 'Distribution Branch Pipe',
-    bannerImage:
-      'https://images.pexels.com/photos/5450707/pexels-photo-5450707.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop',
-    secondImage:
-      'https://images.pexels.com/photos/5450709/pexels-photo-5450709.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    bannerImage: 'assets/products/distribution-branch-pipe.jpg',
+    secondImage: 'assets/products/pvc-splash-cap.jpg',
     description:
       'Precision-drilled PVC / FRP branch pipes delivering balanced hydraulic flow from main headers to individual nozzle orifices.',
     applications: ['Cooling tower water distribution systems', 'Manifold retrofits and repairs'],
@@ -163,10 +151,8 @@ export const products = [
   {
     id: 11,
     name: 'FRP Flapper & Louvers',
-    bannerImage:
-      'https://images.pexels.com/photos/5450710/pexels-photo-5450710.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop',
-    secondImage:
-      'https://images.pexels.com/photos/5450713/pexels-photo-5450713.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    bannerImage: 'assets/products/frp-louvers-flapper.jpg',
+    secondImage: 'assets/products/pvc-drift-eliminator.jpg',
     description:
       'Fiberglass Reinforced Plastic flappers and air-intake louvers that prevent water splash-out while directing optimal laminar airflow into the basin.',
     applications: ['Air inlet louvers', 'Basin splash containment', 'Industrial fluid channels'],
@@ -193,10 +179,8 @@ export const products = [
   {
     id: 13,
     name: 'Long Shaft Cooling Tower Motor',
-    bannerImage:
-      'https://images.pexels.com/photos/5450704/pexels-photo-5450704.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop',
-    secondImage:
-      'https://images.pexels.com/photos/5450706/pexels-photo-5450706.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    bannerImage: 'assets/products/long-shaft-motor.jpg',
+    secondImage: 'assets/products/frp-fan-canopy.jpg',
     description:
       'IP55/IP66 weather-protected flange-mounted motors featuring extended stainless steel shafts designed for direct-drive fan operation in saturated air streams.',
     applications: ['Direct-drive cooling tower fan systems', 'Continuous industrial operations'],
@@ -209,10 +193,8 @@ export const products = [
   {
     id: 14,
     name: 'FRP Fan Canopy & Venturi Stack',
-    bannerImage:
-      'https://images.pexels.com/photos/5450699/pexels-photo-5450699.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop',
-    secondImage:
-      'https://images.pexels.com/photos/5450711/pexels-photo-5450711.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    bannerImage: 'assets/products/frp-fan-canopy.jpg',
+    secondImage: 'assets/products/long-shaft-motor.jpg',
     description:
       'Aerodynamically designed FRP venturi fan recovery cylinders that convert fan exit velocity into pressure, reducing horsepower requirements by up to 15%.',
     applications: ['Top discharge cooling towers', 'Noise-sensitive industrial & commercial sites'],
