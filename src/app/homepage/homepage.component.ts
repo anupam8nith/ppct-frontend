@@ -181,7 +181,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
     { name: 'Jindal Steel & Power', logoUrl: 'assets/clients/jindal.svg' },
     { name: 'LG Electronics', logoUrl: 'assets/clients/logo-lg.svg' },
     { name: 'Samsung Electronics', logoUrl: 'assets/clients/samsung.svg' },
-    { name: 'Reliance Industries', logoUrl: 'assets/clients/reliance.svg' },
+    { name: 'Reliance Industries', logoUrl: 'assets/clients/reliance.png' },
     { name: 'PepsiCo India', logoUrl: 'assets/clients/pepsi.svg' },
     { name: 'Escorts Group', logoUrl: 'assets/clients/escorts.svg' },
     { name: 'Bata India', logoUrl: 'assets/clients/bata-4.svg' },
