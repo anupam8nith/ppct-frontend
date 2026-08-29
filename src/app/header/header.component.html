@@ -3,6 +3,9 @@
     <div class="topbar-left">
       <app-icon name="map-pin" [size]="14"></app-icon>
       <span>{{ business.addressLine }}</span>
+      <a href="assets/docs/pp-cooling-towers-qms.pdf" target="_blank" class="iso-top-pill" title="View ISO 9001:2015 QMS Certificate (PDF)">
+        <app-icon name="shield" [size]="11"></app-icon> ISO 9001:2015 Certified
+      </a>
     </div>
     <div class="topbar-right">
       <a [href]="'mailto:' + business.email">
