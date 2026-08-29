@@ -1,6 +1,6 @@
 // Single source of truth for business contact details used across the site.
 export const BUSINESS = {
-  name: 'P.P. Cooling Towers',
+  name: 'P.P. Cooling Towers™',
   addressLine: '144, Vipin Garden Extn, Gali No. 25, Uttam Nagar, New Delhi-110059',
   phone: '011-25355988',
   mobile: '9811890055',

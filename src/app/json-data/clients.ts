@@ -2,8 +2,17 @@
 // page and for the client count shown elsewhere on the site, so the number
 // never drifts out of sync with the actual list.
 export const clients = [
-  { name: 'ESCORTS LTD', location: 'FARIDABAD (HARYANA)' },
+  { name: 'JINDAL STEEL & POWER LTD', location: 'NEW DELHI / PAN-INDIA' },
+  { name: 'SAMSUNG ELECTRONICS INDIA', location: 'NOIDA (U.P.)' },
+  { name: 'RELIANCE INDUSTRIES LTD', location: 'PAN-INDIA' },
+  { name: 'L.G. ELECTRONICS INDIA', location: 'GREATER NOIDA (U.P.)' },
+  { name: 'PEPSICO INDIA HOLDINGS', location: 'PANIPAT (HARYANA)' },
+  { name: 'ESCORTS KUBOTA LTD', location: 'FARIDABAD (HARYANA)' },
   { name: 'BATA INDIA LTD', location: 'FARIDABAD (HARYANA)' },
+  { name: 'ITC LIMITED', location: 'GURGAON (HARYANA)' },
+  { name: 'JBM GROUP', location: 'FARIDABAD / GURGAON' },
+  { name: 'INDIAN ORDNANCE FACTORIES', location: 'DELHI / PAN-INDIA' },
+  { name: 'NHPC LIMITED', location: 'FARIDABAD (HARYANA)' },
   { name: 'LAKHANI INDIA LTD', location: 'FARIDABAD (HARYANA)' },
   { name: 'VEDRAM & SONS', location: 'SAHIBABAD  (U.P)' },
   { name: 'UNIPRODUCTS (I) LTD', location: 'NOIDA (U.P.)' },

@@ -1,11 +1,11 @@
 export const products = [
   {
     id: 1,
-    name: 'Aluminium Alloys Fan Set & Hub',
+    name: 'Aluminium Alloys Fan Set & Hub (Less Vibration)',
     bannerImage: 'assets/gallery/fan-hub-assembly.jpg',
     secondImage: 'assets/gallery/industrial-fan-blade.jpg',
     description:
-      'Precision dynamically-balanced aluminium alloy fan hub and blade set engineered for maximum CFM air movement with minimal motor load and vibration.',
+      'Precision dynamically balanced cast aluminium alloy fan hub and aerofoil blade set engineered for maximum CFM air movement with significantly less vibration, protecting motor bearings and eliminating mechanical stress.',
     applications: [
       'Industrial cooling towers',
       'HVAC chiller plants',
@@ -13,10 +13,10 @@ export const products = [
       'Chemical & pharmaceutical facilities',
     ],
     advantages: [
-      'Lightweight high-strength cast alloy',
-      'Dynamic balance prevents gearbox wear',
-      'Corrosion and moisture resistant',
-      'Aerodynamically profiled for low noise',
+      'Aerodynamic aluminium fan blades for less vibration & zero flutter',
+      'Lightweight high-strength cast alloy construction',
+      'Dynamic balance protects motor bearings & extended drive shafts',
+      'Aerodynamically profiled for high CFM and low noise',
     ],
   },
   {

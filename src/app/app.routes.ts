@@ -13,7 +13,7 @@ export const routes: Routes = [
     data: {
       title: 'Cooling Tower Manufacturing, Repair & Maintenance',
       description:
-        'P.P. Cooling Towers manufactures, repairs and maintains industrial cooling towers of any capacity across Delhi NCR, and supplies genuine spare parts. Trusted by 65+ businesses.',
+        'P.P. Cooling Towers™ manufactures, repairs and maintains industrial cooling towers of any capacity across India, and supplies genuine spare parts. Trusted by 600+ enterprises like Jindal, LG, Samsung, and Reliance.',
     },
   },
   {
@@ -22,7 +22,7 @@ export const routes: Routes = [
     data: {
       title: 'Products',
       description:
-        'Fan sets, PVC fills, drift eliminators, tie rods and more. Browse our full cooling tower product and spare parts catalog.',
+        'Low-vibration aluminium fan sets, PVC fills, drift eliminators, tie rods and more. Browse our full cooling tower product and OEM spare parts catalog.',
     },
   },
   {
@@ -37,7 +37,7 @@ export const routes: Routes = [
     data: {
       title: 'Precious Clients',
       description:
-        'Escorts, Bata, Pepsi, NHPC, BILT, ITC and 60+ other businesses across Delhi NCR trust P.P. Cooling Towers.',
+        'Jindal, LG, Samsung, Reliance, Escorts, Bata, Pepsi, NHPC, and 600+ other businesses across India trust P.P. Cooling Towers™.',
     },
   },
   {
@@ -46,7 +46,7 @@ export const routes: Routes = [
     data: {
       title: 'About Us',
       description:
-        'P.P. Cooling Towers manufactures, repairs and maintains cooling towers across Delhi NCR. Cost saving, with excellence.',
+        'P.P. Cooling Towers™ manufactures, repairs and maintains cooling towers across India. Cost saving, with excellence.',
     },
   },
   {

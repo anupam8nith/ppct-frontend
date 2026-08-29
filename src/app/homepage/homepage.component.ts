@@ -71,18 +71,19 @@ export const EXPLAINER_SCENES: ExplainerScene[] = [
     phaseBadge: '03. The PPCT OEM Solution',
     phaseBadgeColor: '#0ea5e9',
     timeRange: '0:25 - 0:45',
-    headline: 'Precision Balanced Fans, 360° Sprinklers & Honeycomb Fills',
+    headline: 'Aluminium Fan Blades (Less Vibration), 360° Sprinklers & Fills',
     subtitle:
-      'Direct from our Delhi NCR facility: dynamically balanced aluminium alloy fans, 360-degree self-rotating sprinkler heads, and virgin PVC honeycomb fills.',
+      'Direct from our manufacturing facility: aerodynamic aluminium fan blades engineered for less vibration, 360° self-rotating sprinkler heads, and virgin PVC honeycomb fills.',
     image: 'assets/products/pvc-fills.jpg',
     keyPoints: [
-      'Precision dynamically balanced alloy fan hub & adjustable pitch blades',
+      'Aerodynamic aluminium fan blades engineered for less vibration & zero flutter',
+      'Dynamically balanced cast alloy fan hub protecting motor bearings and drive shafts',
       '360° rotary sprinkler head for uniform water dispersion at low pressure',
-      'Thermoformed virgin PVC cross-flute fills maximizing air-water contact',
+      'Thermoformed virgin PVC cross-flute fills maximizing air-water contact area',
     ],
     metrics: [
       { label: 'Thermal Surface', val: '+40% Contact Area' },
-      { label: 'Dynamic Balance', val: '0% Mechanical Vibration' },
+      { label: 'Dynamic Balance', val: 'Minimal / Less Vibration' },
     ],
   },
   {
@@ -93,16 +94,17 @@ export const EXPLAINER_SCENES: ExplainerScene[] = [
     timeRange: '0:45 - 0:60',
     headline: 'Turnkey Commissioning, In-Stock Spares & Direct OEM Guarantee',
     subtitle:
-      'From rooftop multi-cell HVAC cooling towers to heavy DG systems, backed by 20+ years of manufacturing heritage across Delhi NCR.',
+      'From rooftop multi-cell HVAC cooling towers to heavy DG systems, trusted by 600+ enterprises across India including Jindal, LG, Samsung, and Reliance.',
     image: 'assets/gallery/chiller-dg-rooftop-2.jpg',
     keyPoints: [
       'Turnkey HVAC chiller & diesel generator cooling tower installations',
       'Immediate stock of all 15 OEM components for rapid same-day dispatch',
-      'Direct manufacturer warranty, preventive maintenance & senior engineer audits',
+      'Trusted by 600+ enterprises across India (Jindal, LG, Samsung, Reliance)',
+      'Certified ISO 9001:2015 Quality Management System',
     ],
     metrics: [
-      { label: 'Clients Served', val: '65+ Enterprises' },
-      { label: 'OEM Spares', val: 'Direct Factory Stock' },
+      { label: 'Enterprise Trust', val: '600+ Clients in India' },
+      { label: 'Spares Availability', val: 'Direct Factory Stock' },
     ],
   },
 ];
@@ -125,25 +127,33 @@ export class HomepageComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute) {}
 
   business = BUSINESS;
+  aboutImage = 'assets/gallery/factory-plant.jpg';
 
+  // Hero Carousel State
   heroImages = [
-    'assets/gallery/chiller-dg-rooftop-2.jpg',
-    'assets/gallery/factory-plant.jpg',
-    'assets/gallery/chiller-dg-installation-1.jpg',
-    'assets/carousel/carousel1.jpg',
-    'assets/carousel/carousel2.jpg',
-    'assets/carousel/carousel3.jpg',
+    {
+      src: 'assets/gallery/chiller-dg-installation-1.jpg',
+      title: 'Heavy Industrial & DG Cooling Towers',
+      subtitle: 'Turnkey FRP & Wooden Cooling Towers Built for Heavy Industrial Plants',
+    },
+    {
+      src: 'assets/gallery/chiller-dg-rooftop-2.jpg',
+      title: 'Commercial & Multi-Cell HVAC Towers',
+      subtitle: 'Precision Engineered for High Heat Load Commercial Rooftops',
+    },
+    {
+      src: 'assets/gallery/compressor-chiller-unit.jpg',
+      title: 'Turnkey Chiller & Compressor Circuits',
+      subtitle: 'Maximizing Heat Dissipation with Direct OEM Engineering',
+    },
+    {
+      src: 'assets/gallery/factory-plant.jpg',
+      title: 'In-House Delhi NCR Manufacturing Plant',
+      subtitle: 'Direct-From-Manufacturer Pricing with Zero Middleman Markups',
+    },
   ];
   currentHeroIndex = 0;
   heroInterval: any;
-
-  aboutImage = 'assets/gallery/factory-plant.jpg';
-
-  productCount = products.length;
-  featuredProducts = products.slice(0, 6).map((p) => ({
-    ...p,
-    icon: productIcon(p.id),
-  }));
 
   // Video Explainer state
   explainerScenes = EXPLAINER_SCENES;
@@ -158,11 +168,13 @@ export class HomepageComponent implements OnInit, OnDestroy {
   activeLightboxItem: GalleryItem | null = null;
 
   clients = [
+    { name: 'Jindal Steel & Power', logoUrl: 'assets/clients/jindal.svg' },
     { name: 'LG Electronics', logoUrl: 'assets/clients/logo-lg.svg' },
-    { name: 'PepsiCo', logoUrl: 'assets/clients/pepsi.svg' },
+    { name: 'Samsung Electronics', logoUrl: 'assets/clients/samsung.svg' },
+    { name: 'Reliance Industries', logoUrl: 'assets/clients/reliance.svg' },
+    { name: 'PepsiCo India', logoUrl: 'assets/clients/pepsi.svg' },
     { name: 'Escorts Group', logoUrl: 'assets/clients/escorts.svg' },
     { name: 'Bata India', logoUrl: 'assets/clients/bata-4.svg' },
-    { name: 'Lakhani Footwear', logoUrl: 'assets/clients/lakhani.jpg' },
     { name: 'ITC Limited', logoUrl: 'assets/clients/itco.png' },
     { name: 'JBM Group', logoUrl: 'assets/clients/jbm-group.png' },
     { name: 'Indian Ordnance Factory', logoUrl: 'assets/clients/ordnance-factory.jpg' },
@@ -172,13 +184,19 @@ export class HomepageComponent implements OnInit, OnDestroy {
     { name: 'CBRE Group', logoUrl: 'assets/clients/cbre-group.png' },
     { name: 'ISGEC Heavy Engineering', logoUrl: 'assets/clients/isgec.svg' },
     { name: 'Supreme Industries', logoUrl: 'assets/clients/supreme.svg' },
+    { name: 'Lakhani Footwear', logoUrl: 'assets/clients/lakhani.jpg' },
     { name: 'Radisson Hotels', logoUrl: 'assets/clients/radisson.svg' },
     { name: 'Krishna Maruti', logoUrl: 'assets/clients/krishna-maruti.svg' },
     { name: 'Uniproducts India', logoUrl: 'assets/clients/uniproducts.svg' },
     { name: 'Sona Okegawa', logoUrl: 'assets/clients/sona-group.svg' },
   ];
 
-  clientCount = allClients.length;
+  clientCount = 600;
+  productCount = products.length;
+  featuredProducts = products.slice(0, 6).map((p) => ({
+    ...p,
+    icon: productIcon(p.id),
+  }));
 
   ngOnInit() {
     this.startHeroSlider();
