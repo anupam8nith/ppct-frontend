@@ -40,7 +40,48 @@ h5 {
 footer.site p {
   color: #9fb4c4;
   line-height: 1.7;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+}
+
+.footer-badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.ft-mii-badge {
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+}
+.ft-mii-img {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+}
+.ft-iso-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(95, 184, 212, 0.15);
+  border: 1px solid rgba(95, 184, 212, 0.35);
+  color: #7fcfe3;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  height: 32px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+.ft-iso-badge:hover {
+  background: rgba(95, 184, 212, 0.3);
+  color: #fff;
 }
 
 .socials {

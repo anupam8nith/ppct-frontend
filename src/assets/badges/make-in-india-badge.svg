@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="badgeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2438" />
+      <stop offset="100%" stop-color="#071522" />
+    </linearGradient>
+    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="50%" stop-color="#ee7d1f" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Ring with Industrial Ticks -->
+  <circle cx="120" cy="120" r="114" fill="url(#badgeBg)" stroke="url(#goldRing)" stroke-width="4" />
+  <circle cx="120" cy="120" r="104" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4 3" />
+
+  <!-- Gear Lion Silhouette scaled in center -->
+  <g transform="translate(30, 48) scale(0.38)">
+    <path d="M 40 45 C 45 25 65 15 85 20 C 95 10 115 10 125 22 C 140 15 160 25 165 40 C 175 42 185 55 180 70 C 188 80 185 95 175 105 C 180 115 172 130 158 135 C 150 145 135 148 122 142 C 110 150 90 148 80 138 C 70 142 55 135 50 125 C 38 125 30 112 32 100 C 22 92 22 75 30 65 C 28 52 35 45 40 45 Z" fill="#ffffff" />
+    <path d="M 155 45 C 190 40 230 42 270 48 C 300 52 330 62 355 75 C 370 82 390 95 405 110 C 390 115 375 112 360 108 C 340 102 315 95 290 94 C 265 92 235 95 210 98 C 185 102 165 110 150 118 Z" fill="#ffffff" />
+    <path d="M 95 130 L 105 180 L 125 180 L 128 155 L 142 155 L 145 180 L 165 180 L 160 125 Z" fill="#ffffff" />
+    <path d="M 175 115 L 188 175 L 205 175 L 202 140 L 215 140 L 220 175 L 238 175 L 230 105 Z" fill="#ffffff" />
+    <path d="M 330 80 C 350 90 370 110 380 135 L 395 180 L 375 180 L 365 150 L 350 150 L 345 180 L 325 180 C 325 150 315 130 300 115 Z" fill="#ffffff" />
+    <path d="M 400 120 C 420 135 435 155 440 180 L 420 180 L 412 160 L 400 160 L 395 180 L 380 180 C 385 155 390 135 400 120 Z" fill="#ffffff" />
+    <path d="M 390 95 C 420 85 450 90 465 110 C 475 125 468 140 455 142 C 445 145 440 135 445 125 C 448 118 440 110 425 112 C 410 115 398 118 385 110 Z" fill="#ffffff" />
+    <!-- Gear Accents in Gold -->
+    <circle cx="85" cy="75" r="16" fill="#ee7d1f" />
+    <circle cx="85" cy="75" r="6" fill="#0f2438" />
+    <circle cx="210" cy="72" r="14" fill="#ee7d1f" />
+    <circle cx="210" cy="72" r="5" fill="#0f2438" />
+    <circle cx="345" cy="115" r="15" fill="#ee7d1f" />
+    <circle cx="345" cy="115" r="5" fill="#0f2438" />
+  </g>
+
+  <!-- Top Curved / Straight Typography -->
+  <text x="120" y="38" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="12" fill="#ee7d1f" letter-spacing="3">100% INDIGENOUS</text>
+  
+  <!-- Bottom Text Banner -->
+  <rect x="35" y="152" width="170" height="28" rx="6" fill="#ee7d1f" />
+  <text x="120" y="171" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="13" fill="#ffffff" letter-spacing="2.5">MAKE IN INDIA</text>
+  
+  <text x="120" y="200" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#7fcfe3" letter-spacing="1.5">DELHI NCR PLANT</text>
+</svg>

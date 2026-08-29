@@ -1,8 +1,10 @@
 <div class="topbar">
   <div class="wrap">
     <div class="topbar-left">
-      <app-icon name="map-pin" [size]="14"></app-icon>
-      <span>{{ business.addressLine }}</span>
+      <span class="mii-top-tag" title="Proudly Manufactured in Delhi NCR, India">
+        <img src="assets/badges/make-in-india-badge.svg" alt="Make in India" class="mii-top-ico" /> Make in India
+      </span>
+      <span class="topbar-addr"><app-icon name="map-pin" [size]="13"></app-icon> {{ business.addressLine }}</span>
       <a href="assets/docs/pp-cooling-towers-qms.pdf" target="_blank" class="iso-top-pill" title="View ISO 9001:2015 QMS Certificate (PDF)">
         <app-icon name="shield" [size]="11"></app-icon> ISO 9001:2015 Certified
       </a>

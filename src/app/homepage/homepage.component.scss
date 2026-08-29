@@ -62,6 +62,11 @@
   backdrop-filter: blur(8px);
   margin-bottom: 16px;
 }
+.hero-mii-ico {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
 
 .pulse-dot {
   width: 8px;
@@ -945,6 +950,14 @@
   padding: 6px 14px;
   border-radius: 30px;
   backdrop-filter: blur(6px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.teaser-mii-ico {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
 }
 .about-teaser h2 {
   font-size: clamp(24px, 3.2vw, 34px);
