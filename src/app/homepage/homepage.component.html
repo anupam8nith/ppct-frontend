@@ -173,6 +173,156 @@
   </div>
 </section>
 
+<!-- Interactive Video Explainer: Problem to Solution in 60s -->
+<section class="section explainer-section" id="explainer">
+  <div class="wrap">
+    <div class="section-head text-center">
+      <div class="video-badge">
+        <app-icon name="play" [size]="14"></app-icon> 60-Second Industrial Explainer
+      </div>
+      <h2>The Industrial Cooling Challenge &amp; PPCT Solutions</h2>
+      <p>Watch how unexpected thermal drops, motor vibrations, and scaling are eliminated through precision OEM engineering.</p>
+    </div>
+
+    <!-- Cinema Video Player Container -->
+    <div class="cinema-player-card">
+      <!-- Player Header Bar -->
+      <div class="cinema-topbar">
+        <div class="cinema-status">
+          <span class="live-dot"></span>
+          <span class="status-text">PPCT INDUSTRIAL SOLUTIONS • 60s BRIEFING</span>
+        </div>
+        <div class="cinema-timecode">
+          <span>{{ explainerScenes[activeSceneIndex].timeRange }}</span>
+          <span class="badge-hd">HD 1080P</span>
+        </div>
+      </div>
+
+      <!-- Chapter Navigation Tabs -->
+      <div class="chapter-tabs">
+        <button
+          type="button"
+          class="chapter-tab"
+          *ngFor="let scene of explainerScenes; let i = index"
+          [class.active]="activeSceneIndex === i"
+          (click)="setScene(i)"
+        >
+          <span class="tab-num">0{{ i + 1 }}</span>
+          <span class="tab-label">{{ scene.phaseBadge.replace('0' + (i + 1) + '. ', '') }}</span>
+          <span class="tab-time">{{ scene.timeRange }}</span>
+        </button>
+      </div>
+
+      <!-- Cinema Screen Body -->
+      <div class="cinema-body">
+        <!-- Visual Screen Frame (Left) -->
+        <div class="cinema-visual-frame">
+          <img
+            [src]="explainerScenes[activeSceneIndex].image"
+            [alt]="explainerScenes[activeSceneIndex].headline"
+            class="cinema-bg-img"
+          />
+          <div class="cinema-scanlines"></div>
+
+          <!-- Phase Tag on Visual -->
+          <div
+            class="visual-phase-badge"
+            [style.background]="explainerScenes[activeSceneIndex].phaseBadgeColor"
+          >
+            {{ explainerScenes[activeSceneIndex].phaseBadge }}
+          </div>
+
+          <!-- Floating Metric Badges -->
+          <div class="floating-metrics">
+            <div class="metric-chip" *ngFor="let m of explainerScenes[activeSceneIndex].metrics">
+              <span class="metric-chip-val">{{ m.val }}</span>
+              <span class="metric-chip-lbl">{{ m.label }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Narrative Briefing Column (Right) -->
+        <div class="cinema-narrative">
+          <div class="narrative-meta">
+            <span
+              class="phase-pill"
+              [style.color]="explainerScenes[activeSceneIndex].phaseBadgeColor"
+              [style.borderColor]="explainerScenes[activeSceneIndex].phaseBadgeColor"
+            >
+              {{ explainerScenes[activeSceneIndex].phaseBadge }}
+            </span>
+            <span class="time-badge">{{ explainerScenes[activeSceneIndex].timeRange }}</span>
+          </div>
+
+          <h3>{{ explainerScenes[activeSceneIndex].headline }}</h3>
+          <p class="narrative-sub">{{ explainerScenes[activeSceneIndex].subtitle }}</p>
+
+          <!-- Key Bullet Points -->
+          <ul class="takeaways-list">
+            <li *ngFor="let pt of explainerScenes[activeSceneIndex].keyPoints">
+              <span
+                class="bullet-icon"
+                [style.background]="explainerScenes[activeSceneIndex].phaseBadgeColor + '22'"
+                [style.color]="explainerScenes[activeSceneIndex].phaseBadgeColor"
+              >
+                <app-icon name="check" [size]="14"></app-icon>
+              </span>
+              <span>{{ pt }}</span>
+            </li>
+          </ul>
+
+          <!-- Action Buttons inside Player -->
+          <div class="cinema-actions">
+            <a href="tel:+919811151698" class="btn btn-amber btn-sm">
+              <app-icon name="phone" [size]="14"></app-icon> Talk to Senior Engineer
+            </a>
+            <button type="button" class="btn btn-navy-outline btn-sm" (click)="openPromptModal()">
+              <app-icon name="eye" [size]="14"></app-icon> View AI Prompts &amp; Script
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Player Controls Footer -->
+      <div class="cinema-controls">
+        <div class="ctrl-buttons">
+          <button
+            type="button"
+            class="ctrl-btn play-btn"
+            (click)="toggleExplainerPlay()"
+            [attr.aria-label]="isPlayingExplainer ? 'Pause Explainer' : 'Play Explainer'"
+          >
+            <app-icon [name]="isPlayingExplainer ? 'pause' : 'play'" [size]="16"></app-icon>
+            <span>{{ isPlayingExplainer ? 'Pause Auto-Play' : 'Resume Auto-Play' }}</span>
+          </button>
+          <button
+            type="button"
+            class="ctrl-btn restart-btn"
+            (click)="restartExplainer()"
+            aria-label="Restart from beginning"
+          >
+            <app-icon name="refresh-cw" [size]="14"></app-icon>
+            <span>Restart (0:00)</span>
+          </button>
+        </div>
+
+        <!-- Progress Track Bar -->
+        <div class="scene-progress-bar">
+          <div
+            class="scene-segment"
+            *ngFor="let scene of explainerScenes; let i = index"
+            [class.active]="activeSceneIndex === i"
+            [class.passed]="activeSceneIndex > i"
+            (click)="setScene(i)"
+          >
+            <div class="segment-fill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- NEW: Interactive Real Product & Site Gallery Section -->
 <section class="section gallery-section" id="gallery">
   <div class="wrap">
@@ -392,7 +542,61 @@
       </div>
       <app-enquiry-form variant="dark" ctaLabel="Request a Call"></app-enquiry-form>
     </div>
+<!-- AI Video Prompt Blueprint Modal -->
+<div class="modal-backdrop" *ngIf="showPromptModal" (click)="closePromptModal()">
+  <div class="modal-content prompt-modal" (click)="$event.stopPropagation()">
+    <button class="modal-close" (click)="closePromptModal()" aria-label="Close modal">
+      <app-icon name="close" [size]="20"></app-icon>
+    </button>
+    <div class="prompt-modal-header">
+      <div class="modal-badge-tag">AI Video Production Blueprint</div>
+      <h2>60-Second Video Script &amp; Prompts</h2>
+      <p>Production-ready prompts formatted for Runway Gen-3, Kling AI, Luma Dream Machine, and ElevenLabs voiceover.</p>
+    </div>
+
+    <div class="prompt-modal-body">
+      <div class="prompt-block">
+        <div class="prompt-block-header">
+          <span class="prompt-label">🎙️ ElevenLabs Voiceover Script (55s)</span>
+        </div>
+        <pre class="prompt-code">Plant shutdowns. Surging power bills. Unexpected chiller breakdowns.
+When your cooling tower fails, your entire facility comes to a grinding halt.
+
+Generic parts and poor water distribution destroy thermal transfer, creating severe motor strain and recurring downtime.
+
+Meet P.P. Cooling Towers. For over two decades, we engineer and manufacture precision cooling solutions direct from our plant.
+
+From aerodynamically balanced alloy fan sets and 360-degree rotary sprinklers, to high-efficiency virgin honeycomb PVC fills that maximize heat dissipation.
+
+Whether it's turnkey HVAC installations or heavy diesel generator cooling, we deliver end-to-end engineering and genuine spares.
+
+Trusted by top enterprises like LG, PepsiCo, Escorts, and Bata across Delhi NCR.
+
+Eliminate downtime and source direct from the manufacturer. Visit ppcoolingtowers.web.app or call 9811151698 today.</pre>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-block-header">
+          <span class="prompt-label">🎥 Prompt 1: The Problem (0:00 - 0:15)</span>
+        </div>
+        <pre class="prompt-code">Cinematic hyper-realistic 4k documentary footage of a massive industrial rooftop cooling tower in heavy operation. Saturated steam billowing out into a moody dark industrial sky, vibrating mechanical motor housing, close-up gauge showing rising red temperature indicator, dramatic volumetric orange and teal lighting, shallow depth of field, 24fps --ar 16:9</pre>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-block-header">
+          <span class="prompt-label">🎥 Prompt 2: PVC Honeycomb Fills (0:25 - 0:35)</span>
+        </div>
+        <pre class="prompt-code">Macro cinematic camera push-in through blue and black honeycomb corrugated PVC cooling tower fill media blocks. Micro water droplets and ultra-fine cascading sheets of water flowing evenly across the geometric cross-flute structure. Studio rim lighting, hyper-detailed texture, 4k resolution, smooth 60fps slow motion --ar 16:9</pre>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-block-header">
+          <span class="prompt-label">🎥 Prompt 3: 360° Rotary Sprinkler Head (0:35 - 0:45)</span>
+        </div>
+        <pre class="prompt-code">Ultra high speed slow motion shot of an aluminium alloy rotary sprinkler head spinning smoothly and distributing uniform pressurized water in a perfect 360-degree radial spray pattern across an industrial cooling chamber. Crystal clear water droplets illuminated by sharp studio edge lighting, 4k photorealistic --ar 16:9</pre>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 
 <app-footer></app-footer>

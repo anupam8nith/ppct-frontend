@@ -11,6 +11,102 @@ import { clients as allClients } from '../json-data/clients';
 import { galleryItems, GalleryItem } from '../json-data/gallery-data';
 import { BUSINESS } from '../business-info';
 
+export interface ExplainerScene {
+  id: number;
+  phase: 'problem' | 'cause' | 'solution' | 'oem';
+  phaseBadge: string;
+  phaseBadgeColor: string;
+  timeRange: string;
+  headline: string;
+  subtitle: string;
+  image: string;
+  keyPoints: string[];
+  metrics: { label: string; val: string }[];
+}
+
+export const EXPLAINER_SCENES: ExplainerScene[] = [
+  {
+    id: 1,
+    phase: 'problem',
+    phaseBadge: '01. The Industrial Problem',
+    phaseBadgeColor: '#ef4444',
+    timeRange: '0:00 - 0:15',
+    headline: 'Cooling Inefficiency, Surging Power Bills & Breakdown Risks',
+    subtitle:
+      'When industrial cooling towers fail, chillers overheat, head pressures surge, and factory operations face costly emergency downtime.',
+    image: 'assets/gallery/compressor-chiller-unit.jpg',
+    keyPoints: [
+      'Elevated water approach temperatures choking chiller efficiency',
+      'Sudden high-pressure compressor trips and unexpected plant stops',
+      'Surging kWh electricity consumption per refrigeration ton',
+    ],
+    metrics: [
+      { label: 'Risk Factor', val: 'Emergency Downtime' },
+      { label: 'Energy Waste', val: 'Up to 25% Higher' },
+    ],
+  },
+  {
+    id: 2,
+    phase: 'cause',
+    phaseBadge: '02. Root Causes Identified',
+    phaseBadgeColor: '#f97316',
+    timeRange: '0:15 - 0:25',
+    headline: 'Unbalanced Fans, Clogged Fill Media & Non-Uniform Spray',
+    subtitle:
+      'Mismatched third-party generic spares, warped plastic fills, and worn rotary sprinklers starve the cooling circuit of designed heat transfer.',
+    image: 'assets/products/pvc-drift-eliminator.jpg',
+    keyPoints: [
+      'Unbalanced fan hubs causing violent motor and gearbox vibration',
+      'Scaled and brittle fill blocks creating dry zones and bypass airflow',
+      'Excess water drift loss (>0.2%) draining municipal and boiler makeup water',
+    ],
+    metrics: [
+      { label: 'Vibration Impact', val: 'Premature Motor Wear' },
+      { label: 'Drift Loss', val: 'Severe Water Waste' },
+    ],
+  },
+  {
+    id: 3,
+    phase: 'solution',
+    phaseBadge: '03. The PPCT OEM Solution',
+    phaseBadgeColor: '#0ea5e9',
+    timeRange: '0:25 - 0:45',
+    headline: 'Precision Balanced Fans, 360° Sprinklers & Honeycomb Fills',
+    subtitle:
+      'Direct from our Delhi NCR facility: dynamically balanced aluminium alloy fans, 360-degree self-rotating sprinkler heads, and virgin PVC honeycomb fills.',
+    image: 'assets/products/pvc-fills.jpg',
+    keyPoints: [
+      'Precision dynamically balanced alloy fan hub & adjustable pitch blades',
+      '360° rotary sprinkler head for uniform water dispersion at low pressure',
+      'Thermoformed virgin PVC cross-flute fills maximizing air-water contact',
+    ],
+    metrics: [
+      { label: 'Thermal Surface', val: '+40% Contact Area' },
+      { label: 'Dynamic Balance', val: '0% Mechanical Vibration' },
+    ],
+  },
+  {
+    id: 4,
+    phase: 'oem',
+    phaseBadge: '04. Turnkey Plants & Spares',
+    phaseBadgeColor: '#10b981',
+    timeRange: '0:45 - 0:60',
+    headline: 'Turnkey Commissioning, In-Stock Spares & Direct OEM Guarantee',
+    subtitle:
+      'From rooftop multi-cell HVAC cooling towers to heavy DG systems, backed by 20+ years of manufacturing heritage across Delhi NCR.',
+    image: 'assets/gallery/chiller-dg-rooftop-2.jpg',
+    keyPoints: [
+      'Turnkey HVAC chiller & diesel generator cooling tower installations',
+      'Immediate stock of all 15 OEM components for rapid same-day dispatch',
+      'Direct manufacturer warranty, preventive maintenance & senior engineer audits',
+    ],
+    metrics: [
+      { label: 'Clients Served', val: '65+ Enterprises' },
+      { label: 'OEM Spares', val: 'Direct Factory Stock' },
+    ],
+  },
+];
+
 @Component({
   selector: 'app-homepage',
   standalone: true,
@@ -49,6 +145,13 @@ export class HomepageComponent implements OnInit, OnDestroy {
     icon: productIcon(p.id),
   }));
 
+  // Video Explainer state
+  explainerScenes = EXPLAINER_SCENES;
+  activeSceneIndex = 0;
+  isPlayingExplainer = true;
+  explainerInterval: any;
+  showPromptModal = false;
+
   // Gallery state
   gallery = galleryItems;
   activeCategory: 'All' | 'Installations' | 'Components' | 'Facility' = 'All';
@@ -79,6 +182,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.startHeroSlider();
+    this.startExplainerAutoPlay();
     this.route.fragment.subscribe((frag) => {
       if (frag) {
         setTimeout(() => {
@@ -95,8 +199,10 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.stopHeroSlider();
+    this.stopExplainerAutoPlay();
   }
 
+  // Hero Slider
   startHeroSlider() {
     this.stopHeroSlider();
     this.heroInterval = setInterval(() => {
@@ -113,7 +219,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   setHero(index: number) {
     this.currentHeroIndex = index;
-    this.startHeroSlider(); // reset timer
+    this.startHeroSlider();
   }
 
   prevHero() {
@@ -125,6 +231,57 @@ export class HomepageComponent implements OnInit, OnDestroy {
   nextHero() {
     this.currentHeroIndex = (this.currentHeroIndex + 1) % this.heroImages.length;
     this.startHeroSlider();
+  }
+
+  // Video Explainer Methods
+  startExplainerAutoPlay() {
+    this.stopExplainerAutoPlay();
+    this.isPlayingExplainer = true;
+    this.explainerInterval = setInterval(() => {
+      this.activeSceneIndex = (this.activeSceneIndex + 1) % this.explainerScenes.length;
+    }, 8500);
+  }
+
+  stopExplainerAutoPlay() {
+    if (this.explainerInterval) {
+      clearInterval(this.explainerInterval);
+      this.explainerInterval = null;
+    }
+  }
+
+  toggleExplainerPlay() {
+    if (this.isPlayingExplainer) {
+      this.stopExplainerAutoPlay();
+      this.isPlayingExplainer = false;
+    } else {
+      this.startExplainerAutoPlay();
+    }
+  }
+
+  setScene(index: number) {
+    this.activeSceneIndex = index;
+    if (this.isPlayingExplainer) {
+      this.startExplainerAutoPlay();
+    }
+  }
+
+  restartExplainer() {
+    this.activeSceneIndex = 0;
+    this.startExplainerAutoPlay();
+  }
+
+  openPromptModal() {
+    this.showPromptModal = true;
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  closePromptModal() {
+    this.showPromptModal = false;
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
+    }
   }
 
   // Gallery methods
@@ -157,6 +314,9 @@ export class HomepageComponent implements OnInit, OnDestroy {
   onEscape() {
     if (this.activeLightboxItem) {
       this.closeLightbox();
+    }
+    if (this.showPromptModal) {
+      this.closePromptModal();
     }
   }
 }

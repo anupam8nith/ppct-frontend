@@ -32,6 +32,9 @@ export type IconName =
   | 'linkedin'
   | 'fax'
   | 'send'
+  | 'play'
+  | 'pause'
+  | 'refresh-cw'
   | 'search';
 
 @Component({
@@ -199,6 +202,21 @@ export type IconName =
           @case ('search') {
             <ng-container>
               <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>
+            </ng-container>
+          }
+          @case ('play') {
+            <ng-container>
+              <polygon points="6 3 20 12 6 21 6 3" fill="currentColor" stroke="none"/>
+            </ng-container>
+          }
+          @case ('pause') {
+            <ng-container>
+              <rect x="6" y="4" width="4" height="16" fill="currentColor" stroke="none"/><rect x="14" y="4" width="4" height="16" fill="currentColor" stroke="none"/>
+            </ng-container>
+          }
+          @case ('refresh-cw') {
+            <ng-container>
+              <path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/>
             </ng-container>
           }
           @case ('whatsapp') {
