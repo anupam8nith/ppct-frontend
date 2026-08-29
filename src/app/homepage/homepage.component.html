@@ -215,14 +215,20 @@
 
       <!-- Cinema Screen Body -->
       <div class="cinema-body">
-        <!-- Visual Screen Frame (Left) -->
+        <!-- Visual Screen Frame (Left) with 1080p Video Player -->
         <div class="cinema-visual-frame">
-          <img
-            [src]="explainerScenes[activeSceneIndex].image"
-            [alt]="explainerScenes[activeSceneIndex].headline"
-            class="cinema-bg-img"
-          />
-          <div class="cinema-scanlines"></div>
+          <video
+            #explainerVideo
+            class="cinema-video-player"
+            src="assets/ppct-video.mp4"
+            [poster]="explainerScenes[activeSceneIndex].image"
+            playsinline
+            preload="metadata"
+            controls
+            (timeupdate)="onVideoTimeUpdate($event)"
+            (play)="onVideoPlay()"
+            (pause)="onVideoPause()"
+          ></video>
 
           <!-- Phase Tag on Visual -->
           <div
@@ -230,14 +236,6 @@
             [style.background]="explainerScenes[activeSceneIndex].phaseBadgeColor"
           >
             {{ explainerScenes[activeSceneIndex].phaseBadge }}
-          </div>
-
-          <!-- Floating Metric Badges -->
-          <div class="floating-metrics">
-            <div class="metric-chip" *ngFor="let m of explainerScenes[activeSceneIndex].metrics">
-              <span class="metric-chip-val">{{ m.val }}</span>
-              <span class="metric-chip-lbl">{{ m.label }}</span>
-            </div>
           </div>
         </div>
 

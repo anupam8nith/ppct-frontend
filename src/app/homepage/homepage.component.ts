@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
@@ -233,6 +233,9 @@ export class HomepageComponent implements OnInit, OnDestroy {
     this.startHeroSlider();
   }
 
+  @ViewChild('explainerVideo') explainerVideoRef?: ElementRef<HTMLVideoElement>;
+  isVideoPlaying = false;
+
   // Video Explainer Methods
   startExplainerAutoPlay() {
     this.stopExplainerAutoPlay();
@@ -250,24 +253,72 @@ export class HomepageComponent implements OnInit, OnDestroy {
   }
 
   toggleExplainerPlay() {
-    if (this.isPlayingExplainer) {
-      this.stopExplainerAutoPlay();
-      this.isPlayingExplainer = false;
+    const video = this.explainerVideoRef?.nativeElement;
+    if (video) {
+      if (video.paused) {
+        video.play();
+        this.isVideoPlaying = true;
+        this.stopExplainerAutoPlay();
+      } else {
+        video.pause();
+        this.isVideoPlaying = false;
+      }
     } else {
-      this.startExplainerAutoPlay();
+      if (this.isPlayingExplainer) {
+        this.stopExplainerAutoPlay();
+        this.isPlayingExplainer = false;
+      } else {
+        this.startExplainerAutoPlay();
+      }
+    }
+  }
+
+  onVideoPlay() {
+    this.isVideoPlaying = true;
+    this.stopExplainerAutoPlay();
+  }
+
+  onVideoPause() {
+    this.isVideoPlaying = false;
+  }
+
+  onVideoTimeUpdate(event: Event) {
+    const video = event.target as HTMLVideoElement;
+    if (video && video.duration) {
+      const current = video.currentTime;
+      if (current < 15) {
+        this.activeSceneIndex = 0;
+      } else if (current < 28) {
+        this.activeSceneIndex = 1;
+      } else if (current < 45) {
+        this.activeSceneIndex = 2;
+      } else {
+        this.activeSceneIndex = 3;
+      }
     }
   }
 
   setScene(index: number) {
     this.activeSceneIndex = index;
-    if (this.isPlayingExplainer) {
+    const video = this.explainerVideoRef?.nativeElement;
+    if (video) {
+      const timestamps = [0, 15, 28, 45];
+      video.currentTime = timestamps[index] || 0;
+    }
+    if (this.isPlayingExplainer && !this.isVideoPlaying) {
       this.startExplainerAutoPlay();
     }
   }
 
   restartExplainer() {
     this.activeSceneIndex = 0;
-    this.startExplainerAutoPlay();
+    const video = this.explainerVideoRef?.nativeElement;
+    if (video) {
+      video.currentTime = 0;
+      video.play();
+    } else {
+      this.startExplainerAutoPlay();
+    }
   }
 
   openPromptModal() {
