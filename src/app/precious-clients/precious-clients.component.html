@@ -19,28 +19,31 @@
       <div class="count">{{ filtered.length }} of {{ clients.length }} clients</div>
     </div>
 
-    <div class="table-wrap" *ngIf="filtered.length; else empty">
-      <table>
-        <thead>
-          <tr>
-            <th>Client name</th>
-            <th>Location</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let client of filtered">
-            <td>{{ client.name }}</td>
-            <td>{{ client.location }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <ng-template #empty>
+    @if (filtered.length) {
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Client name</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (client of filtered; track client) {
+              <tr>
+                <td>{{ client.name }}</td>
+                <td>{{ client.location }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    } @else {
       <div class="empty-state">
         <p>No clients match "{{ search }}".</p>
       </div>
-    </ng-template>
+    }
+
   </div>
 </section>
 

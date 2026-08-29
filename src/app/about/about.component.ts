@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
@@ -11,7 +11,7 @@ import { products } from '../json-data/product';
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, RouterModule, FooterComponent, HeaderComponent, EnquiryFormComponent, IconComponent],
+  imports: [RouterModule, FooterComponent, HeaderComponent, EnquiryFormComponent, IconComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })

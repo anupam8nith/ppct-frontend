@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Product, ProductService } from '../services/product.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
 import { EnquiryFormComponent } from '../enquiry-form/enquiry-form.component';
@@ -20,7 +20,7 @@ const REAL_PHOTOS: Record<number, string> = {
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [RouterModule, CommonModule, HeaderComponent, FooterComponent, EnquiryFormComponent, IconComponent],
+  imports: [RouterModule, HeaderComponent, FooterComponent, EnquiryFormComponent, IconComponent],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
 })

@@ -12,7 +12,9 @@
 <section class="section">
   <div class="wrap two-col">
     <div class="intro">
-      <p *ngFor="let paragraph of introParagraphs">{{ paragraph }}</p>
+      @for (paragraph of introParagraphs; track paragraph) {
+        <p>{{ paragraph }}</p>
+      }
 
       <div class="signature">
         <p>Yours sincerely,</p>
@@ -25,13 +27,17 @@
       <div class="side-card">
         <h5>Core Focus</h5>
         <ul>
-          <li *ngFor="let item of coreFocus"><app-icon name="check" [size]="14"></app-icon> {{ item }}</li>
+          @for (item of coreFocus; track item) {
+            <li><app-icon name="check" [size]="14"></app-icon> {{ item }}</li>
+          }
         </ul>
       </div>
       <div class="side-card">
         <h5>Why Choose Us</h5>
         <ul>
-          <li *ngFor="let item of whyChooseUs"><app-icon name="check" [size]="14"></app-icon> {{ item }}</li>
+          @for (item of whyChooseUs; track item) {
+            <li><app-icon name="check" [size]="14"></app-icon> {{ item }}</li>
+          }
         </ul>
       </div>
       <div class="side-card stats">

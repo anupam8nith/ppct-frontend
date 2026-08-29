@@ -3,7 +3,7 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { EnquiryFormComponent } from '../enquiry-form/enquiry-form.component';
 import { IconComponent } from '../icon/icon.component';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { clients } from '../json-data/clients';
@@ -11,7 +11,7 @@ import { clients } from '../json-data/clients';
 @Component({
   selector: 'app-precious-clients',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, EnquiryFormComponent, IconComponent, CommonModule, FormsModule, RouterModule],
+  imports: [HeaderComponent, FooterComponent, EnquiryFormComponent, IconComponent, FormsModule, RouterModule],
   templateUrl: './precious-clients.component.html',
   styleUrl: './precious-clients.component.scss',
 })

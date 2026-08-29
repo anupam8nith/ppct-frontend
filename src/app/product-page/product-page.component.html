@@ -19,24 +19,27 @@
       <div class="count">{{ filtered.length }} of {{ products.length }} products</div>
     </div>
 
-    <div class="grid-3" *ngIf="filtered.length; else empty">
-      <div class="product-card" *ngFor="let product of filtered">
-        <div class="thumb"><app-icon [name]="product.icon" [size]="44"></app-icon></div>
-        <div class="body">
-          <h4>{{ product.name }}</h4>
-          <p>{{ product.description }}</p>
-          <a [routerLink]="['/products', product.id]" class="link">
-            View specs <app-icon name="arrow-right" [size]="14"></app-icon>
-          </a>
-        </div>
+    @if (filtered.length) {
+      <div class="grid-3">
+        @for (product of filtered; track product) {
+          <div class="product-card">
+            <div class="thumb"><app-icon [name]="product.icon" [size]="44"></app-icon></div>
+            <div class="body">
+              <h4>{{ product.name }}</h4>
+              <p>{{ product.description }}</p>
+              <a [routerLink]="['/products', product.id]" class="link">
+                View specs <app-icon name="arrow-right" [size]="14"></app-icon>
+              </a>
+            </div>
+          </div>
+        }
       </div>
-    </div>
-
-    <ng-template #empty>
+    } @else {
       <div class="empty-state">
         <p>No products match "{{ search }}". Try a different search, or ask us directly.</p>
       </div>
-    </ng-template>
+    }
+
   </div>
 </section>
 

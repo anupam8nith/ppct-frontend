@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<ng-container *ngIf="product">
+@if (product) {
   <section class="page-banner detail-banner">
     <div class="wrap">
       <div class="breadcrumb-row">
@@ -13,36 +13,38 @@
       <p>{{ product.description }}</p>
     </div>
   </section>
-
   <section class="section">
     <div class="wrap">
       <a routerLink="/products" class="back-link">
         <app-icon name="arrow-left" [size]="15"></app-icon> Back to all products
       </a>
-
       <div class="detail-grid">
         <div class="visual">
           <div class="hero-tile"><app-icon [name]="icon" [size]="72"></app-icon></div>
-          <div class="real-photo" *ngIf="realPhoto">
-            <img [src]="realPhoto" [alt]="product.name + ' installed in the field'" />
-            <span class="tag">From an actual PPCT installation, not a stock photo</span>
-          </div>
+          @if (realPhoto) {
+            <div class="real-photo">
+              <img [src]="realPhoto" [alt]="product.name + ' installed in the field'" />
+              <span class="tag">From an actual PPCT installation, not a stock photo</span>
+            </div>
+          }
         </div>
-
         <div class="info">
           <div class="info-block">
             <h5><app-icon name="check" [size]="15"></app-icon> Applications</h5>
             <ul>
-              <li *ngFor="let app of product.applications">{{ app }}</li>
+              @for (app of product.applications; track app) {
+                <li>{{ app }}</li>
+              }
             </ul>
           </div>
           <div class="info-block">
             <h5><app-icon name="check" [size]="15"></app-icon> Advantages</h5>
             <ul>
-              <li *ngFor="let adv of product.advantages">{{ adv }}</li>
+              @for (adv of product.advantages; track adv) {
+                <li>{{ adv }}</li>
+              }
             </ul>
           </div>
-
           <div class="enquire-box">
             <h4>Enquire about this product</h4>
             <p>Tell us your quantity and tower spec, we'll quote fast.</p>
@@ -50,7 +52,6 @@
           </div>
         </div>
       </div>
-
       <div class="working-principle">
         <h3>How a cooling tower works</h3>
         <p>
@@ -72,18 +73,21 @@
           systems, petroleum refineries and manufacturing facilities.
         </p>
       </div>
-
-      <div class="related" *ngIf="related.length">
-        <h3>Related products</h3>
-        <div class="related-grid">
-          <a *ngFor="let r of related" [routerLink]="['/products', r.id]" class="related-card">
-            <div class="thumb"><app-icon [name]="r.icon" [size]="32"></app-icon></div>
-            <span>{{ r.name }}</span>
-          </a>
+      @if (related.length) {
+        <div class="related">
+          <h3>Related products</h3>
+          <div class="related-grid">
+            @for (r of related; track r) {
+              <a [routerLink]="['/products', r.id]" class="related-card">
+                <div class="thumb"><app-icon [name]="r.icon" [size]="32"></app-icon></div>
+                <span>{{ r.name }}</span>
+              </a>
+            }
+          </div>
         </div>
-      </div>
+      }
     </div>
   </section>
-</ng-container>
+}
 
 <app-footer></app-footer>

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, Input } from '@angular/core';
 import {
   FormBuilder,
@@ -18,7 +18,7 @@ import { BUSINESS, whatsappLink } from '../business-info';
 @Component({
   selector: 'app-enquiry-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, IconComponent],
+  imports: [ReactiveFormsModule, IconComponent],
   templateUrl: './enquiry-form.component.html',
   styleUrl: './enquiry-form.component.scss',
 })

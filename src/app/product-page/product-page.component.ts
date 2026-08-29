@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Product, ProductService } from '../services/product.service';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
@@ -13,14 +13,13 @@ import { productIcon } from '../json-data/product-icons';
   selector: 'app-product-page',
   standalone: true,
   imports: [
-    CommonModule,
     RouterModule,
     FormsModule,
     HeaderComponent,
     FooterComponent,
     EnquiryFormComponent,
-    IconComponent,
-  ],
+    IconComponent
+],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.scss',
 })

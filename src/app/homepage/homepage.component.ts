@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
@@ -13,13 +13,12 @@ import { clients as allClients } from '../json-data/clients';
   selector: 'app-homepage',
   standalone: true,
   imports: [
-    CommonModule,
     RouterModule,
     HeaderComponent,
     FooterComponent,
     EnquiryFormComponent,
-    IconComponent,
-  ],
+    IconComponent
+],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
 })

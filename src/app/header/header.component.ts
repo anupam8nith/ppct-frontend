@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 import { IconComponent } from '../icon/icon.component';
 import { BUSINESS, whatsappLink } from '../business-info';
@@ -7,7 +7,7 @@ import { BUSINESS, whatsappLink } from '../business-info';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, CommonModule, IconComponent],
+  imports: [RouterModule, IconComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

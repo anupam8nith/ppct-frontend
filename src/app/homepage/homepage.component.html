@@ -1,11 +1,12 @@
 <app-header></app-header>
 
 <section class="hero">
-  <div class="hero-bg" 
-       *ngFor="let img of heroImages; let i = index"
-       [class.active]="i === currentHeroIndex"
-       [style.background-image]="'url(' + img + ')'">
-  </div>
+  @for (img of heroImages; track img; let i = $index) {
+    <div class="hero-bg"
+      [class.active]="i === currentHeroIndex"
+      [style.background-image]="'url(' + img + ')'">
+    </div>
+  }
   <div class="wrap">
     <div class="hero-copy">
       <span class="eyebrow">Cooling Tower Manufacturing &amp; Service &middot; Delhi NCR</span>
@@ -50,7 +51,9 @@
   <div class="wrap">
     <span class="lbl">Trusted by teams at</span>
     <div class="logos">
-      <img *ngFor="let client of clients" [src]="client.logoUrl" [alt]="client.name + ' logo'" />
+      @for (client of clients; track client) {
+        <img [src]="client.logoUrl" [alt]="client.name + ' logo'" />
+      }
     </div>
   </div>
 </section>
@@ -95,16 +98,18 @@
       <p>A sample of our {{ productCount }}-item catalog. Full specs, applications and advantages live on each product page.</p>
     </div>
     <div class="grid-3">
-      <div class="product-card" *ngFor="let product of featuredProducts">
-        <div class="thumb"><app-icon [name]="product.icon" [size]="44"></app-icon></div>
-        <div class="body">
-          <h4>{{ product.name }}</h4>
-          <p>{{ product.description }}</p>
-          <a [routerLink]="['/products', product.id]" class="link">
-            View specs <app-icon name="arrow-right" [size]="14"></app-icon>
-          </a>
+      @for (product of featuredProducts; track product) {
+        <div class="product-card">
+          <div class="thumb"><app-icon [name]="product.icon" [size]="44"></app-icon></div>
+          <div class="body">
+            <h4>{{ product.name }}</h4>
+            <p>{{ product.description }}</p>
+            <a [routerLink]="['/products', product.id]" class="link">
+              View specs <app-icon name="arrow-right" [size]="14"></app-icon>
+            </a>
+          </div>
         </div>
-      </div>
+      }
     </div>
     <div class="products-foot">
       <a routerLink="/products" class="btn btn-navy">View all {{ productCount }} products</a>
