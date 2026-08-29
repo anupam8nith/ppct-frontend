@@ -542,58 +542,102 @@
       </div>
       <app-enquiry-form variant="dark" ctaLabel="Request a Call"></app-enquiry-form>
     </div>
-<!-- AI Video Prompt Blueprint Modal -->
+  </div>
+</section>
+
+<!-- AI Video Prompt Blueprint Modal (Higgsfield AI & Unified Production Suite) -->
 <div class="modal-backdrop" *ngIf="showPromptModal" (click)="closePromptModal()">
   <div class="modal-content prompt-modal" (click)="$event.stopPropagation()">
     <button class="modal-close" (click)="closePromptModal()" aria-label="Close modal">
       <app-icon name="close" [size]="20"></app-icon>
     </button>
     <div class="prompt-modal-header">
-      <div class="modal-badge-tag">AI Video Production Blueprint</div>
-      <h2>60-Second Video Script &amp; Prompts</h2>
-      <p>Production-ready prompts formatted for Runway Gen-3, Kling AI, Luma Dream Machine, and ElevenLabs voiceover.</p>
+      <div class="modal-badge-tag">Higgsfield AI • Master Video Blueprint</div>
+      <h2>60-Second Video Master Prompt &amp; Script</h2>
+      <p>Single unified master prompt with 5 internal scene segregations, reference image mapping, and synchronized voiceover.</p>
     </div>
 
     <div class="prompt-modal-body">
+      <!-- Higgsfield Master Prompt -->
       <div class="prompt-block">
         <div class="prompt-block-header">
-          <span class="prompt-label">🎙️ ElevenLabs Voiceover Script (55s)</span>
+          <span class="prompt-label">🤖 Higgsfield AI / Cinema World Model Master Prompt (All-in-One)</span>
         </div>
-        <pre class="prompt-code">Plant shutdowns. Surging power bills. Unexpected chiller breakdowns.
+        <pre class="prompt-code">[PROJECT: P.P. COOLING TOWERS (PPCT) INDUSTRIAL SOLUTIONS - 60s HERO VIDEO]
+
+[STYLE & CINEMATOGRAPHY]:
+Hyper-realistic 4K industrial documentary, ARRI Alexa 35 cinema camera, anamorphic lens flare, dramatic orange and deep navy blue studio rim lighting, shallow depth of field, photorealistic fluid dynamics, metallic reflections, steady mechanical movement, zero morphing artifacts.
+
+[TIMELINE & SCENE SEGREGATION]:
+
+-- 00:00 to 00:15 | ACT I: THE INDUSTRIAL CRISIS
+Visuals: Moody, cinematic high-contrast shot of heavy rooftop industrial cooling towers in continuous operation under humid skies. Steam billowing violently from the venturi stack. Camera slowly zooms in on an analog industrial pressure/temperature gauge showing needle in red warning zone. Motor housing shows high mechanical vibration strain.
+Mood: High stakes, urgent, demanding process heat control.
+
+-- 00:15 to 00:25 | ACT II: THE ROOT CAUSE BREAKDOWN
+Visuals: Seamless macro cut to internal cooling tower components. Close-up on clogged, scaled fill media blocks and warped sprinkler heads showing irregular, non-uniform water dispersion with dry zones. Camera pans quickly across uncalibrated fan blades causing shaft imbalance.
+Mood: Revealing mechanical inefficiencies and avoidable thermal losses.
+
+-- 00:25 to 00:37 | ACT III-A: PPCT PRECISION BALANCED FAN HUB & BLADES
+Visuals: Smooth wipe transition to a pristine high-tech studio environment. Studio turntable 360-degree orbit around a dynamically balanced cast aluminium alloy cooling tower fan hub with precision aerofoil blades (ref: fan-hub-assembly.jpg). Zero vibration, metallic edge reflections, silky smooth rotation.
+Text Overlay: "0% Dynamic Vibration • Aerodynamic High-CFM Alloy Hub"
+
+-- 00:37 to 00:45 | ACT III-B: 360° ROTARY SPRINKLER & HONEYCOMB PVC FILLS
+Visuals: High-speed slow motion shot of an aluminium alloy rotary sprinkler head (ref: aluminium-sprinkler.jpg) spinning smoothly, casting a uniform 360-degree pressurized water umbrella across thermoformed blue and black honeycomb PVC cross-flute fills (ref: pvc-fills.jpg). Ultra-clear laminar water sheets maximizing thermal dissipation.
+Text Overlay: "+40% Heat Dissipation • Uniform 360° Dispersion"
+
+-- 00:45 to 00:55 | ACT IV: TURNKEY MULTI-CELL PLANTS & 20+ YEARS HERITAGE
+Visuals: Epic sweeping aerial crane-down shot of modern multi-cell FRP industrial cooling towers running cleanly on a commercial rooftop under bright blue skies (ref: chiller-dg-rooftop-2.jpg). Cut to PPCT manufacturing plant in Delhi NCR (ref: factory-plant.jpg) showcasing in-house fabrication and immediate factory spares stock.
+Text Overlay: "Trusted by 65+ Enterprises • LG | PepsiCo | Escorts | Bata | ITC | Ordnance Factory"
+
+-- 00:55 to 01:00 | ACT V: CALL TO ACTION & DIRECT OEM SUPPLY
+Visuals: Sleek dark navy industrial glassmorphism end card with glowing orange accent lines.
+Title: "P.P. COOLING TOWERS"
+Sub-tag: "Direct OEM Spares & Turnkey Cooling Tower Systems"
+Contact: "Call: +91 9811151698 | +91 9811151697"
+Website: "ppcoolingtowers.web.app"</pre>
+      </div>
+
+      <!-- ElevenLabs Voiceover -->
+      <div class="prompt-block">
+        <div class="prompt-block-header">
+          <span class="prompt-label">🎙️ ElevenLabs / Voice Agent Script (55 Seconds)</span>
+        </div>
+        <pre class="prompt-code">[0:00 - 0:15]
+Plant shutdowns. Surging power bills. Unexpected chiller breakdowns.
 When your cooling tower fails, your entire facility comes to a grinding halt.
 
+[0:15 - 0:25]
 Generic parts and poor water distribution destroy thermal transfer, creating severe motor strain and recurring downtime.
 
+[0:25 - 0:37]
 Meet P.P. Cooling Towers. For over two decades, we engineer and manufacture precision cooling solutions direct from our plant.
+Dynamically balanced aluminium alloy fans that eliminate mechanical vibration.
 
-From aerodynamically balanced alloy fan sets and 360-degree rotary sprinklers, to high-efficiency virgin honeycomb PVC fills that maximize heat dissipation.
+[0:37 - 0:45]
+360-degree self-rotating sprinkler heads for uniform water dispersion.
+And high-efficiency virgin honeycomb PVC fills that maximize heat dissipation.
 
-Whether it's turnkey HVAC installations or heavy diesel generator cooling, we deliver end-to-end engineering and genuine spares.
+[0:45 - 0:55]
+From turnkey HVAC setups to continuous-duty diesel generator cooling,
+trusted by top enterprises like LG, PepsiCo, Escorts, and Bata across Delhi NCR.
 
-Trusted by top enterprises like LG, PepsiCo, Escorts, and Bata across Delhi NCR.
-
-Eliminate downtime and source direct from the manufacturer. Visit ppcoolingtowers.web.app or call 9811151698 today.</pre>
+[0:55 - 1:00]
+Eliminate downtime and source direct from the manufacturer.
+Visit ppcoolingtowers.web.app or call 9811151698 today.</pre>
       </div>
 
+      <!-- Reference Assets Guide -->
       <div class="prompt-block">
         <div class="prompt-block-header">
-          <span class="prompt-label">🎥 Prompt 1: The Problem (0:00 - 0:15)</span>
+          <span class="prompt-label">📁 Reference Image Assets to Upload</span>
         </div>
-        <pre class="prompt-code">Cinematic hyper-realistic 4k documentary footage of a massive industrial rooftop cooling tower in heavy operation. Saturated steam billowing out into a moody dark industrial sky, vibrating mechanical motor housing, close-up gauge showing rising red temperature indicator, dramatic volumetric orange and teal lighting, shallow depth of field, 24fps --ar 16:9</pre>
-      </div>
-
-      <div class="prompt-block">
-        <div class="prompt-block-header">
-          <span class="prompt-label">🎥 Prompt 2: PVC Honeycomb Fills (0:25 - 0:35)</span>
-        </div>
-        <pre class="prompt-code">Macro cinematic camera push-in through blue and black honeycomb corrugated PVC cooling tower fill media blocks. Micro water droplets and ultra-fine cascading sheets of water flowing evenly across the geometric cross-flute structure. Studio rim lighting, hyper-detailed texture, 4k resolution, smooth 60fps slow motion --ar 16:9</pre>
-      </div>
-
-      <div class="prompt-block">
-        <div class="prompt-block-header">
-          <span class="prompt-label">🎥 Prompt 3: 360° Rotary Sprinkler Head (0:35 - 0:45)</span>
-        </div>
-        <pre class="prompt-code">Ultra high speed slow motion shot of an aluminium alloy rotary sprinkler head spinning smoothly and distributing uniform pressurized water in a perfect 360-degree radial spray pattern across an industrial cooling chamber. Crystal clear water droplets illuminated by sharp studio edge lighting, 4k photorealistic --ar 16:9</pre>
+        <pre class="prompt-code">1. Compressor & Chiller Circuit: src/assets/gallery/compressor-chiller-unit.jpg
+2. Dynamically Balanced Fan Hub: src/assets/gallery/fan-hub-assembly.jpg
+3. 360° Rotary Sprinkler Head:  src/assets/gallery/aluminium-sprinkler.jpg
+4. Virgin Honeycomb PVC Fills:   src/assets/products/pvc-fills.jpg
+5. Turnkey Rooftop Installation: src/assets/gallery/chiller-dg-rooftop-2.jpg
+6. PPCT Delhi NCR Factory:       src/assets/gallery/factory-plant.jpg</pre>
       </div>
     </div>
   </div>
