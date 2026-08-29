@@ -35,6 +35,7 @@
         <ul>
           <li><a routerLink="/about">About Us</a></li>
           <li><a routerLink="/products">Products</a></li>
+          <li><a routerLink="/home" fragment="gallery">Photo Gallery</a></li>
           <li><a routerLink="/precious-clients">Precious Clients</a></li>
           <li><a routerLink="/contact">Contact Us</a></li>
         </ul>
@@ -49,10 +50,6 @@
         <div class="contact-line">
           <span class="ico"><app-icon name="phone" [size]="16"></app-icon></span>
           <span>{{ business.phone }} (Phone)</span>
-        </div>
-        <div class="contact-line">
-          <span class="ico"><app-icon name="fax" [size]="16"></app-icon></span>
-          <span>{{ business.fax }} (Fax)</span>
         </div>
         <div class="contact-line">
           <span class="ico"><app-icon name="phone" [size]="16"></app-icon></span>

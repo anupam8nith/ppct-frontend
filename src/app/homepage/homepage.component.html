@@ -1,163 +1,368 @@
 <app-header></app-header>
 
+<!-- Hero Section with 5s Automatic Slider & Controls -->
 <section class="hero">
-  @for (img of heroImages; track img; let i = $index) {
-    <div class="hero-bg"
-      [class.active]="i === currentHeroIndex"
-      [style.background-image]="'url(' + img + ')'">
-    </div>
-  }
+  <div
+    class="hero-bg"
+    *ngFor="let img of heroImages; let i = index"
+    [class.active]="i === currentHeroIndex"
+    [style.background-image]="'url(' + img + ')'"
+  ></div>
+
   <div class="wrap">
     <div class="hero-copy">
-      <span class="eyebrow">Cooling Tower Manufacturing &amp; Service &middot; Delhi NCR</span>
+      <div class="badge-pill">
+        <span class="pulse-dot"></span>
+        <span>Delhi NCR OEM Manufacturing &middot; ISO Quality</span>
+      </div>
+
       <h1>Cooling towers built to run, and kept running.</h1>
       <p class="lead">
         We manufacture, repair and maintain industrial cooling towers of any capacity, and supply
-        genuine spare parts, with the punctuality and pricing that keeps {{ clientCount }}+
+        genuine OEM spare parts with the direct-from-manufacturer pricing that keeps {{ clientCount }}+
         businesses across Delhi NCR coming back.
       </p>
+
       <div class="cta-row">
-        <a routerLink="/contact" class="btn btn-amber">Request a Quote</a>
-        <a href="tel:+919811890055" class="btn btn-outline">Call +91-98118 90055</a>
+        <a routerLink="/contact" class="btn btn-amber">
+          <app-icon name="mail" [size]="16"></app-icon> Request a Quote
+        </a>
+        <a href="tel:+919811890055" class="btn btn-outline">
+          <app-icon name="phone" [size]="16"></app-icon> Call +91-98118 90055
+        </a>
+        <a href="#gallery" class="btn btn-glass">
+          <app-icon name="eye" [size]="16"></app-icon> View Gallery
+        </a>
       </div>
+
       <div class="hero-stats">
         <div class="stat">
           <div class="num">{{ clientCount }}+</div>
-          <div class="lbl">Businesses served across Delhi NCR</div>
+          <div class="lbl">Businesses served in Delhi NCR</div>
         </div>
         <div class="stat">
-          <div class="num">{{ productCount }}</div>
-          <div class="lbl">Cooling tower product &amp; spares lines</div>
+          <div class="num">{{ productCount }}+</div>
+          <div class="lbl">Manufactured lines &amp; spares</div>
         </div>
         <div class="stat">
-          <div class="num">3</div>
-          <div class="lbl">Services: build, repair, maintain</div>
+          <div class="num">100%</div>
+          <div class="lbl">In-house plant fabrication</div>
         </div>
       </div>
     </div>
+
     <div class="hero-card">
-      <h3>Why teams choose PPCT</h3>
+      <div class="card-tag">Industrial Partner</div>
+      <h3>Why leading teams choose PPCT</h3>
       <ul>
-        <li><app-icon name="check" [size]="15"></app-icon> Professional, experienced execution team</li>
-        <li><app-icon name="check" [size]="15"></app-icon> Dedicated, on-time project completion</li>
-        <li><app-icon name="check" [size]="15"></app-icon> Competitive, direct-from-manufacturer pricing</li>
-        <li><app-icon name="check" [size]="15"></app-icon> Genuine spare parts, always in stock</li>
+        <li>
+          <span class="chk"><app-icon name="check" [size]="14"></app-icon></span>
+          <span>Professional, experienced engineering &amp; execution team</span>
+        </li>
+        <li>
+          <span class="chk"><app-icon name="check" [size]="14"></app-icon></span>
+          <span>Dedicated, on-time project completion guarantee</span>
+        </li>
+        <li>
+          <span class="chk"><app-icon name="check" [size]="14"></app-icon></span>
+          <span>Direct-from-manufacturer transparent pricing</span>
+        </li>
+        <li>
+          <span class="chk"><app-icon name="check" [size]="14"></app-icon></span>
+          <span>Genuine spare parts in stock (Sprinklers, Fans, Fills, Caps)</span>
+        </li>
       </ul>
+      <div class="hero-card-foot">
+        <a routerLink="/about" class="learn-more">Learn more about our standards &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Controls Bar -->
+  <div class="hero-controls">
+    <div class="wrap controls-wrap">
+      <div class="slide-indicator">
+        <span class="current">0{{ currentHeroIndex + 1 }}</span>
+        <span class="divider">/</span>
+        <span class="total">0{{ heroImages.length }}</span>
+      </div>
+
+      <div class="dots">
+        <button
+          type="button"
+          *ngFor="let img of heroImages; let i = index"
+          class="dot"
+          [class.active]="i === currentHeroIndex"
+          (click)="setHero(i)"
+          [attr.aria-label]="'Go to slide ' + (i + 1)"
+        >
+          <span class="dot-fill"></span>
+        </button>
+      </div>
+
+      <div class="arrows">
+        <button type="button" class="arrow-btn" (click)="prevHero()" aria-label="Previous slide">
+          <app-icon name="chevron-left" [size]="18"></app-icon>
+        </button>
+        <button type="button" class="arrow-btn" (click)="nextHero()" aria-label="Next slide">
+          <app-icon name="chevron-right" [size]="18"></app-icon>
+        </button>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- Continuous Infinite Logo Marquee -->
 <section class="trust">
-  <div class="wrap">
-    <span class="lbl">Trusted by teams at</span>
-    <div class="logos">
-      @for (client of clients; track client) {
+  <div class="wrap trust-head">
+    <span class="lbl">Trusted by top enterprises &amp; engineering leaders across Delhi NCR</span>
+  </div>
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <div class="logo-item" *ngFor="let client of clients">
         <img [src]="client.logoUrl" [alt]="client.name + ' logo'" />
-      }
+      </div>
+      <!-- Duplicate for infinite seamless scroll -->
+      <div class="logo-item" *ngFor="let client of clients">
+        <img [src]="client.logoUrl" [alt]="client.name + ' logo'" />
+      </div>
     </div>
   </div>
 </section>
 
+<!-- What We Do Section -->
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">What we do</span>
-      <h2>Full lifecycle cooling tower support</h2>
-      <p>From first installation to years of upkeep, one team handles it, so you're never chasing three different vendors.</p>
+      <span class="eyebrow">Full Lifecycle Support</span>
+      <h2>Engineered for reliability. Maintained for life.</h2>
+      <p>From custom fabrication to scheduled preventive maintenance, our single dedicated team handles every phase.</p>
     </div>
     <div class="grid-4">
-      <div class="card">
+      <div class="card service-card">
         <div class="icon-tile"><app-icon name="building"></app-icon></div>
-        <h4>Manufacturing</h4>
-        <p>Cooling towers built to your required capacity, engineered for efficient, reliable operation.</p>
+        <h4>Custom Manufacturing</h4>
+        <p>Cooling towers custom-engineered to your required tonnage and thermal duty for maximum efficiency.</p>
       </div>
-      <div class="card">
+      <div class="card service-card">
         <div class="icon-tile"><app-icon name="wrench"></app-icon></div>
-        <h4>Repair &amp; Maintenance</h4>
-        <p>Scheduled upkeep and fast repairs that keep towers running at full efficiency, year-round.</p>
+        <h4>Repair &amp; Overhauls</h4>
+        <p>Emergency breakdown repairs, structural rebuilds, and performance audits that eliminate downtime.</p>
       </div>
-      <div class="card">
+      <div class="card service-card">
         <div class="icon-tile"><app-icon name="package"></app-icon></div>
-        <h4>Spare Parts Supply</h4>
-        <p>Genuine fill packs, fans, nozzles, eliminators and structural parts, always in stock.</p>
+        <h4>Genuine Spare Parts</h4>
+        <p>In-stock PVC fills, rotary sprinklers, aerodynamic fan blades, hub assemblies, and end caps.</p>
       </div>
-      <div class="card">
+      <div class="card service-card">
         <div class="icon-tile"><app-icon name="clock"></app-icon></div>
-        <h4>Cost &amp; Time Discipline</h4>
-        <p>Competitive, transparent pricing and dedicated focus on on-time project completion.</p>
+        <h4>On-Time Discipline</h4>
+        <p>Direct manufacturer pricing, strict project turnaround timelines, and zero vendor bureaucracy.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- NEW: Interactive Real Product & Site Gallery Section -->
+<section class="section gallery-section" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Real Production &amp; Field Showcase</span>
+      <h2>Product Gallery &amp; Site Installations</h2>
+      <p>Explore real photographs from our Delhi manufacturing plant, precision components, and rooftop installations.</p>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="gallery-filters">
+      <button
+        type="button"
+        class="filter-btn"
+        [class.active]="activeCategory === 'All'"
+        (click)="setCategory('All')"
+      >
+        All Showcase ({{ gallery.length }})
+      </button>
+      <button
+        type="button"
+        class="filter-btn"
+        [class.active]="activeCategory === 'Installations'"
+        (click)="setCategory('Installations')"
+      >
+        Cooling Towers &amp; Installations
+      </button>
+      <button
+        type="button"
+        class="filter-btn"
+        [class.active]="activeCategory === 'Components'"
+        (click)="setCategory('Components')"
+      >
+        Spares &amp; Components
+      </button>
+      <button
+        type="button"
+        class="filter-btn"
+        [class.active]="activeCategory === 'Facility'"
+        (click)="setCategory('Facility')"
+      >
+        Manufacturing Facility
+      </button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+      <div
+        class="gallery-card"
+        *ngFor="let item of filteredGallery"
+        (click)="openLightbox(item)"
+      >
+        <div class="img-container">
+          <img [src]="item.image" [alt]="item.title" loading="lazy" />
+          <div class="img-overlay">
+            <span class="zoom-btn">
+              <app-icon name="eye" [size]="18"></app-icon> View Full Spec
+            </span>
+          </div>
+          <div class="badge-tag" *ngIf="item.highlight">{{ item.highlight }}</div>
+        </div>
+        <div class="card-info">
+          <span class="cat-label">{{ item.categoryLabel }}</span>
+          <h3>{{ item.title }}</h3>
+          <p class="specs-pill">{{ item.specs }}</p>
+          <p class="desc">{{ item.description }}</p>
+          <div class="card-action">
+            <span class="view-link">
+              Explore Item <app-icon name="arrow-right" [size]="14"></app-icon>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal for Gallery Details -->
+<div
+  class="lightbox-overlay"
+  *ngIf="activeLightboxItem"
+  (click)="closeLightbox()"
+>
+  <div class="lightbox-modal" (click)="$event.stopPropagation()">
+    <button type="button" class="close-modal" (click)="closeLightbox()" aria-label="Close modal">
+      <app-icon name="close" [size]="20"></app-icon>
+    </button>
+
+    <div class="modal-grid">
+      <div class="modal-img-col">
+        <img [src]="activeLightboxItem.image" [alt]="activeLightboxItem.title" />
+      </div>
+      <div class="modal-info-col">
+        <span class="modal-cat">{{ activeLightboxItem.categoryLabel }}</span>
+        <h2>{{ activeLightboxItem.title }}</h2>
+
+        <div class="modal-spec-box">
+          <strong>Technical Specification:</strong>
+          <p>{{ activeLightboxItem.specs }}</p>
+        </div>
+
+        <p class="modal-desc">{{ activeLightboxItem.description }}</p>
+
+        <div class="modal-badges">
+          <span class="mbadge"><app-icon name="check" [size]="14"></app-icon> In-House Manufactured</span>
+          <span class="mbadge"><app-icon name="check" [size]="14"></app-icon> Genuine Quality Tested</span>
+          <span class="mbadge"><app-icon name="check" [size]="14"></app-icon> Immediate Dispatch Available</span>
+        </div>
+
+        <div class="modal-actions">
+          <a routerLink="/contact" class="btn btn-amber" (click)="closeLightbox()">
+            <app-icon name="mail" [size]="16"></app-icon> Inquire About This Item
+          </a>
+          <a [href]="'tel:+91' + business.mobile" class="btn btn-navy-outline">
+            <app-icon name="phone" [size]="16"></app-icon> Call Us Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Lines Preview -->
 <section class="section products">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Our products</span>
+      <span class="eyebrow">Catalog Overview</span>
       <h2>Components engineered for every part of the tower</h2>
-      <p>A sample of our {{ productCount }}-item catalog. Full specs, applications and advantages live on each product page.</p>
+      <p>A sample of our {{ productCount }}-item catalog with direct OEM availability across Delhi NCR.</p>
     </div>
     <div class="grid-3">
-      @for (product of featuredProducts; track product) {
-        <div class="product-card">
-          <div class="thumb"><app-icon [name]="product.icon" [size]="44"></app-icon></div>
-          <div class="body">
-            <h4>{{ product.name }}</h4>
-            <p>{{ product.description }}</p>
-            <a [routerLink]="['/products', product.id]" class="link">
-              View specs <app-icon name="arrow-right" [size]="14"></app-icon>
-            </a>
+      <div class="product-card" *ngFor="let product of featuredProducts">
+        <div class="thumb" [style.background-image]="product.bannerImage ? 'url(' + product.bannerImage + ')' : 'none'">
+          <div class="thumb-tint" *ngIf="product.bannerImage"></div>
+          <div class="thumb-icon" *ngIf="!product.bannerImage">
+            <app-icon [name]="product.icon" [size]="44"></app-icon>
           </div>
+          <span class="thumb-badge">Genuine OEM</span>
         </div>
-      }
+        <div class="body">
+          <h4>{{ product.name }}</h4>
+          <p>{{ product.description }}</p>
+          <a [routerLink]="['/products', product.id]" class="link">
+            View specs &amp; applications <app-icon name="arrow-right" [size]="14"></app-icon>
+          </a>
+        </div>
+      </div>
     </div>
     <div class="products-foot">
-      <a routerLink="/products" class="btn btn-navy">View all {{ productCount }} products</a>
+      <a routerLink="/products" class="btn btn-navy">Browse All {{ productCount }} Products</a>
     </div>
   </div>
 </section>
 
+<!-- Stats & Why Choose Us Band -->
 <section class="band">
   <div class="wrap">
     <div>
-      <span class="eyebrow dark">By the numbers</span>
-      <h2>Real clients. Real components. No filler.</h2>
-      <p>Everything on this site reflects our actual catalog and client list, not stock claims.</p>
+      <span class="eyebrow dark">Verified Track Record</span>
+      <h2>Real clients. Real components. Zero filler.</h2>
+      <p>Everything on this site reflects our actual Delhi NCR plant manufacturing, catalog, and long-standing client roster.</p>
       <div class="stat-grid">
         <div><div class="num">{{ clientCount }}+</div><div class="lbl">Businesses served across Delhi NCR</div></div>
-        <div><div class="num">{{ productCount }}</div><div class="lbl">Manufactured product &amp; spare part lines</div></div>
-        <div><div class="num">3</div><div class="lbl">Core services under one roof</div></div>
-        <div><div class="num">1</div><div class="lbl">Team, from install to upkeep</div></div>
+        <div><div class="num">{{ productCount }}+</div><div class="lbl">Manufactured product &amp; spare lines</div></div>
+        <div><div class="num">3</div><div class="lbl">Core pillars: Build, Repair, Maintain</div></div>
+        <div><div class="num">1</div><div class="lbl">Single direct accountable team</div></div>
       </div>
     </div>
     <div>
-      <h3 class="choose-title">Why choose us</h3>
+      <h3 class="choose-title">The PPCT Advantage</h3>
       <ul class="choose-list">
-        <li><span class="chk"><app-icon name="check" [size]="13"></app-icon></span> Professional &amp; experienced team on every job</li>
-        <li><span class="chk"><app-icon name="check" [size]="13"></app-icon></span> Dedicated, timely completion of assignments</li>
-        <li><span class="chk"><app-icon name="check" [size]="13"></app-icon></span> Competitive costs vs. established players</li>
-        <li><span class="chk"><app-icon name="check" [size]="13"></app-icon></span> Customer-satisfaction driven, start to finish</li>
+        <li><span class="chk"><app-icon name="check" [size]="13"></app-icon></span> Professional &amp; experienced engineers on every project</li>
+        <li><span class="chk"><app-icon name="check" [size]="13"></app-icon></span> Guaranteed on-time delivery &amp; turnaround</li>
+        <li><span class="chk"><app-icon name="check" [size]="13"></app-icon></span> Direct manufacturer pricing with no middleman margins</li>
+        <li><span class="chk"><app-icon name="check" [size]="13"></app-icon></span> Customer-satisfaction driven, from first call to long-term upkeep</li>
       </ul>
     </div>
   </div>
 </section>
 
+<!-- About Teaser with Real Factory Photo -->
 <section class="section about-teaser">
   <div class="wrap">
-    <img [src]="aboutImage" alt="P.P. Cooling Towers installation on an industrial rooftop" />
+    <div class="about-img-frame">
+      <img [src]="aboutImage" alt="P.P. Cooling Towers manufacturing plant in Delhi NCR" />
+      <div class="img-badge">In-House Manufacturing</div>
+    </div>
     <div>
-      <span class="eyebrow">About us</span>
-      <h2>Cost saving, with excellence.</h2>
+      <span class="eyebrow">About P.P. Cooling Towers</span>
+      <h2>Cost saving, with engineering excellence.</h2>
       <p>
         P.P. Cooling Towers manufactures, repairs and maintains cooling towers of any capacity, and
-        supplies genuine spare parts. In a short time, we've served numerous companies across Delhi
-        and NCR, and we're proud that many of them keep coming back.
+        supplies genuine spare parts. Operating from our Delhi NCR facility, we take immense pride in having
+        served numerous leading industrial and commercial enterprises who rely on us year after year.
       </p>
       <p>
-        Our team is dynamic, energetic and experienced, with a major thrust on punctuality and cost
-        discipline, competitive against much older, larger companies.
+        Our team is dynamic, energetic, and deeply experienced, with a rigorous thrust on punctuality and direct-cost
+        discipline, delivering superior results against older, larger corporations.
       </p>
-      <a routerLink="/about" class="btn btn-navy">Read our full story</a>
+      <a routerLink="/about" class="btn btn-navy">Read Our Full Story</a>
       <div class="sign">
         Yours sincerely, for P.P. Cooling Towers
         <strong>Paritosh Kumar</strong>
@@ -166,13 +371,14 @@
   </div>
 </section>
 
+<!-- Request a Call CTA Band -->
 <section class="cta-band" id="quote">
   <div class="wrap">
     <div class="inner">
       <div>
         <span class="eyebrow">Get a quote</span>
-        <h2>Not sure what you need?</h2>
-        <p>Tell us about your setup and our team will get back to you with the right solution, no obligation.</p>
+        <h2>Need a new tower, repair, or spare parts?</h2>
+        <p>Tell us your capacity or requirement, and our engineering team will get back to you with the right solution within hours.</p>
       </div>
       <app-enquiry-form variant="dark" ctaLabel="Request a Call"></app-enquiry-form>
     </div>

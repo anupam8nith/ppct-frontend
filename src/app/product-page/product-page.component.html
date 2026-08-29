@@ -23,12 +23,19 @@
       <div class="grid-3">
         @for (product of filtered; track product) {
           <div class="product-card">
-            <div class="thumb"><app-icon [name]="product.icon" [size]="44"></app-icon></div>
+            <div class="thumb" [style.background-image]="product.bannerImage ? 'url(' + product.bannerImage + ')' : 'none'">
+              @if (product.bannerImage) {
+                <div class="thumb-tint"></div>
+              } @else {
+                <app-icon [name]="product.icon" [size]="44"></app-icon>
+              }
+              <span class="thumb-badge">Genuine OEM</span>
+            </div>
             <div class="body">
               <h4>{{ product.name }}</h4>
               <p>{{ product.description }}</p>
               <a [routerLink]="['/products', product.id]" class="link">
-                View specs <app-icon name="arrow-right" [size]="14"></app-icon>
+                View specs &amp; applications <app-icon name="arrow-right" [size]="14"></app-icon>
               </a>
             </div>
           </div>

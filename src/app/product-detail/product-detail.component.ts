@@ -13,8 +13,13 @@ import { products } from '../json-data/product';
 // Everything else uses the icon-tile treatment rather than a mismatched
 // stock photo pretending to be this specific part.
 const REAL_PHOTOS: Record<number, string> = {
-  2: 'assets/slide3.jpg', // Aluminium Alloys Sprinkler, real installed fill-bed photo
-  3: 'assets/slide3.jpg', // PVC Fills, same installation
+  1: 'assets/gallery/fan-hub-assembly.jpg', // Aluminium Fan Set & Hub
+  2: 'assets/gallery/aluminium-sprinkler.jpg', // Aluminium Alloys Sprinkler
+  3: 'assets/slide3.jpg', // PVC Fills
+  5: 'assets/gallery/pvc-end-cap-63mm.jpg', // PVC End Cap (63 mm)
+  8: 'assets/gallery/tie-rod-adjuster.jpg', // Tie Rod Adjuster
+  12: 'assets/gallery/industrial-fan-blade.jpg', // FRP / Aluminium Fan Blades
+  15: 'assets/gallery/chiller-dg-installation-1.jpg', // Chiller & DG Systems
 };
 
 @Component({

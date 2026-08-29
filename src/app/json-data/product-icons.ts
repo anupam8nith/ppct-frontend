@@ -18,6 +18,7 @@ export const PRODUCT_ICONS: Record<number, IconName> = {
   12: 'fan', // FRP Fan Set
   13: 'gear', // Long Shaft Motor
   14: 'roof', // FRP Fan Canopy
+  15: 'building', // Chiller & DG Cooling Tower Systems
 };
 
 export function productIcon(id: number): IconName {
