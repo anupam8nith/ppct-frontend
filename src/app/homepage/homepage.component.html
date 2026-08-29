@@ -6,7 +6,7 @@
     class="hero-bg"
     *ngFor="let img of heroImages; let i = index"
     [class.active]="i === currentHeroIndex"
-    [style.background-image]="'url(' + img + ')'"
+    [style.background-image]="'url(' + img.src + ')'"
   ></div>
 
   <div class="wrap">
