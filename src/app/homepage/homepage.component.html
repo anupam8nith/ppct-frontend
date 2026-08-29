@@ -182,20 +182,17 @@
 
       <!-- Cinema Screen Body -->
       <div class="cinema-body">
-        <!-- Visual Screen Frame (Left) with 1080p Video Player -->
+        <!-- Visual Screen Frame (Left) with YouTube HD Video Player -->
         <div class="cinema-visual-frame">
-          <video
-            #explainerVideo
-            class="cinema-video-player"
-            src="assets/ppct-video.mp4"
-            [poster]="explainerScenes[activeSceneIndex].image"
-            playsinline
-            preload="metadata"
-            controls
-            (timeupdate)="onVideoTimeUpdate($event)"
-            (play)="onVideoPlay()"
-            (pause)="onVideoPause()"
-          ></video>
+          <iframe
+            class="cinema-video-player youtube-frame"
+            [src]="safeYoutubeUrl"
+            title="P.P. Cooling Towers® 60-Second Industrial Explainer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
 
           <!-- Phase Tag on Visual -->
           <div
@@ -241,8 +238,11 @@
             <a href="tel:+919811151698" class="btn btn-amber btn-sm">
               <app-icon name="phone" [size]="14"></app-icon> Talk to Senior Engineer
             </a>
+            <a href="https://youtu.be/9UJjwgb6aSI" target="_blank" rel="noopener" class="btn btn-navy-outline btn-sm">
+              <app-icon name="play" [size]="14"></app-icon> Watch on YouTube
+            </a>
             <button type="button" class="btn btn-navy-outline btn-sm" (click)="openPromptModal()">
-              <app-icon name="eye" [size]="14"></app-icon> View AI Prompts &amp; Script
+              <app-icon name="eye" [size]="14"></app-icon> AI Prompt &amp; Script
             </button>
           </div>
         </div>
